@@ -159,6 +159,16 @@ nav {
     width: 100%;
     animation: fadeInUp 1s ease-out 0.4s backwards;
 }
+
+.hero-content > .cta-buttons:first-of-type .cta-button:first-child {
+    width: 100%;
+    max-width: 300px;
+}
+
+.hero-content > .cta-buttons:first-of-type .cta-button:not(:first-child) {
+    display: none;
+}
+
 .cta-buttons {
     display: flex;
     gap: 1rem;
@@ -176,12 +186,13 @@ nav {
     margin-top: 1rem;
     animation: fadeInUp 1s ease-out 0.6s backwards;
 }
-.hero-content > .cta-buttons,
+
+.hero-content > .cta-buttons:not(:first-of-type),
 .hero-content > .cta-buttons2 {
     display: inline-flex;
     width: auto;
+    vertical-align: top;
 }
-
 
 .cta-button {
     background: #e74c3c;
@@ -189,8 +200,8 @@ nav {
     padding: 0.75rem 1.5rem;
     text-decoration: none;
     border-radius: 50px;
-    font-size:0.9rem;
     font-weight: bold;
+    font-size: 0.9rem;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -207,7 +218,6 @@ nav {
     height: 20px;
     fill: currentColor;
 }
-
 .whatsapp-btn {
     background: #25D366;
 }
@@ -548,4 +558,5 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
 
