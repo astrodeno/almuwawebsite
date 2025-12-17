@@ -150,22 +150,12 @@ nav {
     }
 }
 
-.hero-content > .cta-buttons:first-of-type {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    width: 100%;
-    animation: fadeInUp 1s ease-out 0.4s backwards;
-}
-
 .cta-buttons {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 1rem;
+    margin-top: 2rem;
     animation: fadeInUp 1s ease-out 0.4s backwards;
 }
 
