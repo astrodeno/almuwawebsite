@@ -150,26 +150,46 @@ nav {
     }
 }
 
-.cta-buttons,
-.cta-buttons2 {
+.hero-content > .cta-buttons:first-of-type {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 2rem;
+    width: 100%;
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+}
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
     animation: fadeInUp 1s ease-out 0.4s backwards;
 }
 
 .cta-buttons2 {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-top: 1rem;
+    animation: fadeInUp 1s ease-out 0.6s backwards;
 }
+.hero-content > .cta-buttons,
+.hero-content > .cta-buttons2 {
+    display: inline-flex;
+    width: auto;
+}
+
 
 .cta-button {
     background: #e74c3c;
     color: white;
-    padding: 1rem 2.5rem;
+    padding: 0.75rem 1.5rem;
     text-decoration: none;
     border-radius: 50px;
+    font-size:0.9rem;
     font-weight: bold;
     display: inline-flex;
     align-items: center;
@@ -528,3 +548,4 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
