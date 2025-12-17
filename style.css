@@ -150,41 +150,62 @@ nav {
     }
 }
 
-/* Button container for Get a Quote only */
 .hero-content > .cta-buttons:first-of-type {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    flex-wrap: wrap;
     margin-top: 2rem;
+    width: 100%;
     animation: fadeInUp 1s ease-out 0.4s backwards;
 }
 
-/* Container for Airtel and Safaricom buttons - side by side on desktop */
-.hero-content > .cta-buttons:nth-of-type(2),
-.hero-content > .cta-buttons2 {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    margin: 1rem 0.5rem 0 0.5rem;
-    vertical-align: top;
+.hero-content > .cta-buttons:first-of-type .cta-button:first-child {
+    width: 100%;
+    max-width: 300px;
+}
+
+.hero-content > .cta-buttons:first-of-type .cta-button:not(:first-child) {
+    display: none;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+}
+
+.cta-buttons2 {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
     animation: fadeInUp 1s ease-out 0.6s backwards;
 }
 
-/* All buttons styling */
+.hero-content > .cta-buttons:not(:first-of-type),
+.hero-content > .cta-buttons2 {
+    display: inline-flex;
+    width: auto;
+    vertical-align: top;
+}
+
 .cta-button {
     background: #e74c3c;
     color: white;
-    padding: 0.7rem 1.5rem;
+    padding: 0.75rem 1.5rem;
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 0.5rem;
     transition: transform 0.3s, box-shadow 0.3s;
-    white-space: nowrap;
 }
 
 .cta-button:hover {
@@ -193,8 +214,8 @@ nav {
 }
 
 .cta-button svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     fill: currentColor;
 }
 
@@ -366,4 +387,186 @@ nav {
 
 .testimonial-card .author {
     font-weight: bold;
-    color: #e
+    color: #e74c3c;
+}
+
+.contact {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: rgba(255,255,255,0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.contact-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+}
+
+.contact-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: white;
+}
+
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #e74c3c;
+}
+
+.submit-btn {
+    background: #e74c3c;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #c0392b;
+}
+
+.form-message {
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    display: none;
+}
+
+.form-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.form-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+footer {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 60px;
+        flex-direction: column;
+        background: #e74c3c;
+        width: 100%;
+        padding: 2rem;
+        transition: right 0.3s;
+        gap: 1rem;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .cta-buttons,
+    .cta-buttons2 {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100% !important;
+        display: flex !important;
+    }
+
+    .hero-content > .cta-buttons:first-of-type .cta-button:first-child {
+        max-width: 100%;
+    }
+
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .about-container,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
