@@ -197,30 +197,54 @@
                
             </div>
             <div class="contact-form">
-                <div id="formMessage" class="form-message"></div>
-                <form id="contactForm">
-                     <form action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="ddb7cc2d-d65b-4a06-8dfb-3ed71ff24610">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
-                    </div>
-                          <button type="submit">Submit Form</button>
-                    <!-- <button type="submit" class="submit-btn">Send Message</button> -->
-                </form>
-            </div>
+            <h3>Place Your Order</h3>
+            <p class="subtitle">Fill out the form below and we'll get back to you soon</p>
+            
+            <div id="formMessage" class="form-message"></div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+                <input type="hidden" name="access_key" value="ddb7cc2d-d65b-4a06-8dfb-3ed71ff24610">
+                <input type="hidden" name="subject" value="New Order from ALMUWA Website">
+                <input type="hidden" name="from_name" value="ALMUWA Contact Form">
+
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+254 700 000 000">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service/Product *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="Exhauster Services">Exhauster Services</option>
+                        <option value="Sand Supply">Sand Supply</option>
+                        <option value="Ballast">Ballast</option>
+                        <option value="Rocksand">Rocksand</option>
+                        <option value="Machine Cut Stones">Machine Cut Stones</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="order">Order Details *</label>
+                    <textarea id="order" name="order" rows="4" required placeholder="Please provide details about your order (quantity, delivery location, timeline, etc.)"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">Send Order</button>
+            </form>
+        </div>
+    </div>
         </div>
     </section>
 
@@ -228,17 +252,52 @@
         <p>&copy; <span id="currentYear"></span> ALMUWA Enterprises. All rights reserved.</p>
         <p>Quality Building Materials & Professional Exhauster Services</p>
     </footer>
+    <script>
+        const form = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.className = 'form-message';
+            formMessage.style.display = 'none';
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = 'Thank you! Your order has been received. We will contact you shortly.';
+                    form.reset();
+                } else {
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = 'Oops! Something went wrong. Please try again or contact us directly.';
+                }
+            } catch (error) {
+                formMessage.className = 'form-message error';
+                formMessage.textContent = 'Network error. Please check your connection and try again.';
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Order';
+            }
+        });
+    </script>
 
     <script src="script.js"></script>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
+ 
 
