@@ -66,7 +66,7 @@
   /* ================================================================
      LAYOUT HELPERS
   ================================================================ */
-  .wrap  { width:100%; padding:0 1.1rem; }          /* mobile gutters */
+  .wrap  { width:100%; padding:0 1.1rem; }
   .sec   { padding:3.5rem 0; }
   .tag {
     display:inline-flex; align-items:center; gap:.45rem;
@@ -78,7 +78,6 @@
     font-family:var(--head); font-weight:800;
     line-height:1.03; letter-spacing:-.02em; color:var(--ink);
   }
-  /* Mobile type scale */
   .d-xl { font-size:clamp(2rem,8vw,5rem); }
   .d-lg { font-size:clamp(1.7rem,6vw,3rem); }
   .d-md { font-size:clamp(1.4rem,5vw,2.4rem); }
@@ -101,7 +100,7 @@
   .btn-full { width:100%; }
 
   /* ================================================================
-     HEADER  (mobile-first)
+     HEADER
   ================================================================ */
   #hdr {
     position:fixed; top:0; left:0; right:0; z-index:200;
@@ -127,7 +126,7 @@
   .lsub  { font-size:.55rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:#f3a09a; transition:color var(--dur); }
 
   .nmenu {
-    display:none; /* hidden on mobile */
+    display:none;
     position:fixed; top:64px; left:0; right:0;
     background:rgba(255,255,255,.98); backdrop-filter:blur(16px);
     flex-direction:column; padding:1.25rem 1.1rem 1.5rem;
@@ -157,7 +156,7 @@
   }
 
   /* ================================================================
-     HERO CAROUSEL  (mobile-first)
+     HERO CAROUSEL
   ================================================================ */
   .hero {
     position:relative; width:100%;
@@ -165,7 +164,6 @@
     overflow:hidden; background:var(--dark);
   }
 
-  /* Slides track */
   .cs-track {
     display:flex; height:100%;
     transition:transform .7s var(--ease);
@@ -181,7 +179,6 @@
     object-fit:cover; object-position:center 35%;
     filter:brightness(.55);
   }
-  /* Gradient overlay on each slide */
   .cs-slide::after {
     content:'';
     position:absolute; inset:0;
@@ -193,7 +190,6 @@
     );
   }
 
-  /* Slide badge (vehicle label) */
   .cs-badge {
     position:absolute; top:1.2rem; right:1.2rem; z-index:3;
     background:rgba(192,57,43,.9); color:#fff;
@@ -205,7 +201,6 @@
   }
   .cs-slide.active .cs-badge { opacity:1; transform:translateY(0); }
 
-  /* Hero text content  (sits above all slides) */
   .hero-content {
     position:absolute; inset:0; z-index:10;
     display:flex; flex-direction:column; justify-content:flex-end;
@@ -250,7 +245,6 @@
     to   { opacity:1; transform:translateY(0); }
   }
 
-  /* Carousel controls */
   .cs-dots {
     position:absolute; bottom:2.5rem; left:50%;
     transform:translateX(-50%); z-index:11;
@@ -263,9 +257,8 @@
   }
   .cs-dot.active { width:24px; border-radius:3px; background:var(--red); }
 
-  /* Prev/Next arrows — hidden on tiny mobile */
   .cs-arrow {
-    display:none; /* shown at sm+ */
+    display:none;
     position:absolute; top:50%; z-index:11;
     transform:translateY(-50%);
     width:44px; height:44px; border-radius:50%;
@@ -278,7 +271,6 @@
   .cs-prev { left:1rem; }
   .cs-next { right:1rem; }
 
-  /* Progress bar */
   .cs-progress {
     position:absolute; bottom:0; left:0; right:0; z-index:11;
     height:3px; background:rgba(255,255,255,.1);
@@ -298,7 +290,7 @@
   @keyframes tick { from { transform:translateX(0); } to { transform:translateX(-50%); } }
 
   /* ================================================================
-     STATS  (mobile: 2×2 grid)
+     STATS
   ================================================================ */
   .stats { background:var(--cream); }
   .stats-grid {
@@ -343,7 +335,7 @@
   .dbicon { width:26px; height:26px; border-radius:7px; background:rgba(192,57,43,.1); display:flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0; }
 
   /* ================================================================
-     SERVICES  (mobile: 1 col)
+     SERVICES
   ================================================================ */
   .services { background:var(--cream); }
   .svc-grid { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden; margin-top:2rem; }
@@ -364,7 +356,6 @@
   .slist li { font-size:.74rem; color:var(--ink-3); font-weight:500; display:flex; align-items:center; gap:.42rem; }
   .slist li::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--red); flex-shrink:0; }
   .sarrow { position:absolute; bottom:1.1rem; right:1.1rem; width:24px; height:24px; border-radius:50%; background:var(--red); color:#fff; display:flex; align-items:center; justify-content:center; font-size:.65rem; opacity:0; transform:translate(4px,4px); transition:all var(--dur); }
-  /* JCB dark card */
   .svc-jcb { background:var(--ink) !important; }
   .svc-jcb:hover { background:var(--ink-2) !important; }
   .svc-jcb .snum { color:rgba(255,255,255,.04); }
@@ -377,13 +368,17 @@
   .jbadge { display:inline-flex; align-items:center; gap:.4rem; background:var(--red); color:#fff; font-size:.57rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; padding:.18rem .65rem; border-radius:50px; margin-bottom:.65rem; }
 
   /* ================================================================
-     GALLERY  (mobile: 1 col → grid at md)
+     GALLERY
   ================================================================ */
   .gallery { background:var(--white); }
   .gfilters { display:flex; gap:.4rem; flex-wrap:wrap; margin-top:1.5rem; margin-bottom:1.5rem; }
   .gtab { font-family:var(--body); font-size:.65rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.4rem 1rem; border-radius:50px; border:1.5px solid var(--border); background:transparent; color:var(--muted); transition:all var(--dur); }
   .gtab.active, .gtab:hover { background:var(--ink); color:#fff; border-color:var(--ink); }
+
+  /* Gallery grid */
   .ggrid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+
+  /* Image items */
   .gi { position:relative; overflow:hidden; border-radius:var(--r); background:var(--cream); cursor:pointer; }
   .gi img { width:100%; height:160px; object-fit:cover; transition:transform .5s var(--ease); display:block; }
   .gi.gw { grid-column:span 2; }
@@ -395,11 +390,51 @@
   .gzoom { position:absolute; top:.7rem; right:.7rem; width:30px; height:30px; border-radius:50%; background:rgba(255,255,255,.9); display:flex; align-items:center; justify-content:center; font-size:.7rem; color:var(--ink); opacity:0; transform:scale(.8); transition:all var(--dur); }
   .gi:hover .gzoom { opacity:1; transform:scale(1); }
 
+  /* Video items */
+  .gv { position:relative; overflow:hidden; border-radius:var(--r); background:var(--dark); cursor:pointer; }
+  .gv.gw { grid-column:span 2; }
+  .gv video {
+    width:100%; height:220px;
+    object-fit:cover; display:block;
+    transition:transform .5s var(--ease);
+  }
+  .gv.gw video { height:280px; }
+  .gv:hover video { transform:scale(1.03); }
+  .gvov {
+    position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(13,13,13,.75) 0%, transparent 55%);
+    display:flex; align-items:flex-end; padding:1rem;
+    transition:background var(--dur);
+  }
+  .gv:hover .gvov { background:linear-gradient(to top, rgba(13,13,13,.6) 0%, transparent 55%); }
+  .gvlabel { font-family:var(--head); font-size:.75rem; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:.03em; }
+  .gvplay {
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%,-50%) scale(1);
+    width:52px; height:52px; border-radius:50%;
+    background:rgba(192,57,43,.92);
+    border:2.5px solid rgba(255,255,255,.4);
+    color:#fff; font-size:1.2rem;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .3s var(--ease), background .3s;
+    backdrop-filter:blur(4px);
+    pointer-events:none;
+  }
+  .gv:hover .gvplay { transform:translate(-50%,-50%) scale(1.12); background:var(--red); }
+  .gvbadge {
+    position:absolute; top:.7rem; left:.7rem;
+    background:rgba(192,57,43,.9); color:#fff;
+    font-size:.55rem; font-weight:700; letter-spacing:.15em;
+    text-transform:uppercase; padding:.2rem .65rem; border-radius:50px;
+    backdrop-filter:blur(4px);
+  }
+
   /* Lightbox */
-  .lb { display:none; position:fixed; inset:0; z-index:2000; background:rgba(8,8,8,.95); backdrop-filter:blur(12px); align-items:center; justify-content:center; padding:1.25rem; }
+  .lb { display:none; position:fixed; inset:0; z-index:2000; background:rgba(8,8,8,.96); backdrop-filter:blur(14px); align-items:center; justify-content:center; padding:1.25rem; }
   .lb.open { display:flex; }
-  .lb img { max-width:100%; max-height:88vh; border-radius:var(--r); object-fit:contain; }
-  .lbx { position:absolute; top:1rem; right:1rem; background:rgba(255,255,255,.12); border:none; color:#fff; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2rem; transition:background var(--dur); }
+  .lb-media { max-width:100%; max-height:88vh; border-radius:var(--r); object-fit:contain; display:block; }
+  .lb-video { width:min(860px, 96vw); max-height:88vh; border-radius:var(--r); background:#000; display:block; }
+  .lbx { position:absolute; top:1rem; right:1rem; background:rgba(255,255,255,.12); border:none; color:#fff; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2rem; transition:background var(--dur); z-index:2010; }
   .lbx:hover { background:var(--red); }
 
   /* ================================================================
@@ -419,7 +454,7 @@
   .trole { font-size:.68rem; color:rgba(255,255,255,.3); margin-top:.12rem; }
 
   /* ================================================================
-     WHY US  (mobile: stacked)
+     WHY US
   ================================================================ */
   .why { background:var(--cream); }
   .wpts { display:flex; flex-direction:column; margin-top:1.5rem; }
@@ -439,7 +474,7 @@
   .qwa { background:rgba(37,211,102,.15) !important; border:1.5px solid rgba(37,211,102,.3) !important; color:rgba(255,255,255,.85) !important; border-radius:50px; padding:.6rem 1.2rem; }
 
   /* ================================================================
-     CONTACT  (mobile: stacked)
+     CONTACT
   ================================================================ */
   .contact { background:var(--white); }
   .cinfo > p { font-size:.84rem; color:var(--muted); margin-bottom:1.6rem; }
@@ -453,7 +488,6 @@
   .cc-wa .ccicon { background:#d4efdf; }
   .cc-wa .cclbl { color:#27ae60; }
   a.cc-wa:hover { border-color:#27ae60; background:#e0f7e9; }
-  /* Form */
   .cfbox { background:var(--cream); border-radius:var(--r-lg); padding:1.75rem; border:1px solid var(--border); }
   .fhead { font-family:var(--head); font-size:1.3rem; font-weight:800; color:var(--ink); text-transform:uppercase; letter-spacing:-.01em; margin-bottom:.3rem; }
   .fsub  { font-size:.76rem; color:var(--muted); margin-bottom:1.6rem; }
@@ -493,7 +527,7 @@
   .fbot { display:flex; flex-direction:column; gap:.4rem; align-items:center; text-align:center; padding:1.25rem 0; font-size:.68rem; }
 
   /* ================================================================
-     FLOATING WA BUTTON
+     FLOATING WA
   ================================================================ */
   .waflt {
     position:fixed; bottom:1.25rem; right:1.25rem; z-index:900;
@@ -517,7 +551,7 @@
   .rv2 { transition-delay:.2s; }
 
   /* ================================================================
-     TABLET  ≥ 600px
+     TABLET ≥ 600px
   ================================================================ */
   @media (min-width:600px) {
     .wrap  { padding:0 1.5rem; }
@@ -528,13 +562,15 @@
     .ggrid { grid-template-columns:repeat(3,1fr); gap:10px; }
     .gi img { height:200px; }
     .gi.gw img { height:280px; }
+    .gv video { height:240px; }
+    .gv.gw video { height:320px; }
     .tgrid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
     .frow  { grid-template-columns:1fr 1fr; }
     .fbot  { flex-direction:row; justify-content:space-between; }
   }
 
   /* ================================================================
-     DESKTOP  ≥ 900px
+     DESKTOP ≥ 900px
   ================================================================ */
   @media (min-width:900px) {
     .wrap  { padding:0 2rem; max-width:1240px; margin:0 auto; }
@@ -542,7 +578,7 @@
     .nav-inner { height:72px; }
     .lmark { font-size:1.15rem; }
     .nmenu {
-      display:flex !important; /* override mobile hide */
+      display:flex !important;
       position:static;
       flex-direction:row; align-items:center;
       background:none; backdrop-filter:none;
@@ -552,38 +588,28 @@
     .nl { color:rgba(255,255,255,.75); padding:.5rem .85rem; }
     .nl-cta { background:var(--red); color:#fff !important; text-align:left; margin-top:0; border-radius:50px; }
     .mbtn  { display:none; }
-    /* show prev/next arrows */
     .cs-arrow { display:flex; }
     .cs-prev { left:1.5rem; }
     .cs-next { right:1.5rem; }
-    /* hero text repositioned */
     .hero-content { padding:0 3rem 4rem; max-width:640px; }
-    /* stats: 4 col */
-    .stats-grid {
-      grid-template-columns:repeat(4,1fr);
-    }
+    .stats-grid { grid-template-columns:repeat(4,1fr); }
     .scell:nth-child(2) { border-right:1px solid var(--border); }
     .scell:nth-child(3) { border-bottom:none; }
     .scell:nth-child(4) { border-right:none; border-bottom:none; }
-    /* about 2-col */
     .about-inner { display:grid; grid-template-columns:5fr 4fr; gap:5rem; align-items:center; }
     .dcard { margin-top:0; }
-    /* services 3-col */
     .svc-grid { grid-template-columns:repeat(3,1fr); }
-    /* gallery */
     .ggrid { grid-template-columns:repeat(3,1fr); }
     .gi img { height:250px; }
     .gi.gw img { height:340px; }
-    /* testimonials 3-col */
+    .gv video { height:260px; }
+    .gv.gw video { height:360px; }
     .tgrid { grid-template-columns:repeat(3,1fr); }
-    /* why grid */
     .why-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
     .wright { position:sticky; top:96px; }
     .qcard { margin-top:0; }
-    /* contact 2-col */
     .cinner { display:grid; grid-template-columns:1fr 1.5fr; gap:5rem; align-items:start; }
     .ccards { margin-bottom:0; }
-    /* footer */
     .ftop { flex-direction:row; gap:4rem; }
     .fbrand { flex:2; }
     .fcol { flex:1; }
@@ -594,9 +620,7 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════
-     HEADER
-═══════════════════════════════════════════ -->
+<!-- HEADER -->
 <header id="hdr">
   <div class="nav-inner">
     <a href="#home" class="logo-wrap">
@@ -615,42 +639,31 @@
   </div>
 </header>
 
-<!-- ═══════════════════════════════════════════
-     HERO CAROUSEL
-═══════════════════════════════════════════ -->
-<section class="hero" id="home" aria-label="Hero section with vehicle showcase">
-
-  <!-- Slides -->
+<!-- HERO CAROUSEL -->
+<section class="hero" id="home" aria-label="Hero section">
   <div class="cs-track" id="csTrack">
-
     <div class="cs-slide active" data-cat="JCB Backhoe Loader">
       <img src="20221214_145959.webp" alt="Almuwa Enterprises JCB Backhoe Loader digging trench in Nairobi" loading="eager">
       <div class="cs-badge">JCB Backhoe Loader</div>
     </div>
-
     <div class="cs-slide" data-cat="JCB Site Operations">
       <img src="20240206_182346.webp" alt="JCB Backhoe loading materials on construction site" loading="lazy">
       <div class="cs-badge">JCB Site Operations</div>
     </div>
-
     <div class="cs-slide" data-cat="Exhauster Truck Fleet">
       <img src="20200221_064128.webp" alt="Almuwa Enterprises professional exhauster truck" loading="lazy">
       <div class="cs-badge">Exhauster Truck Fleet</div>
     </div>
-
     <div class="cs-slide" data-cat="JCB Land Clearing">
       <img src="IMG_20180928_175219.webp" alt="JCB preparing and levelling land in Nairobi" loading="lazy">
       <div class="cs-badge">JCB Land Clearing</div>
     </div>
-
     <div class="cs-slide" data-cat="Exhauster Service">
       <img src="IMG_20181231_135930.webp" alt="Almuwa Enterprises exhauster service at residential site" loading="lazy">
       <div class="cs-badge">Exhauster Service</div>
     </div>
-
   </div>
 
-  <!-- Hero overlay content -->
   <div class="hero-content">
     <div class="hero-eyebrow"><span></span>Ngong Road, Karen · Nairobi</div>
     <h1>Build With<em>Confidence.</em></h1>
@@ -668,21 +681,13 @@
     </div>
   </div>
 
-  <!-- Arrows -->
   <button class="cs-arrow cs-prev" id="csPrev" aria-label="Previous slide">‹</button>
   <button class="cs-arrow cs-next" id="csNext" aria-label="Next slide">›</button>
-
-  <!-- Dots -->
   <div class="cs-dots" id="csDots" role="tablist" aria-label="Carousel navigation"></div>
-
-  <!-- Progress bar -->
   <div class="cs-progress"><div class="cs-progress-bar" id="csBar"></div></div>
-
 </section>
 
-<!-- ═══════════════════════════════════════════
-     SERVICE TICKER
-═══════════════════════════════════════════ -->
+<!-- TICKER -->
 <div class="ticker-wrap" aria-hidden="true">
   <div class="ticker">
     <span class="ti"><span class="tdot"></span>Sand Supply</span>
@@ -704,9 +709,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════
-     STATS
-═══════════════════════════════════════════ -->
+<!-- STATS -->
 <div class="stats sec">
   <div class="wrap">
     <div class="stats-grid rv">
@@ -718,9 +721,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════
-     ABOUT
-═══════════════════════════════════════════ -->
+<!-- ABOUT -->
 <section class="about sec" id="about">
   <div class="wrap">
     <div class="about-inner">
@@ -753,9 +754,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     SERVICES
-═══════════════════════════════════════════ -->
+<!-- SERVICES -->
 <section class="services sec" id="services">
   <div class="wrap">
     <div class="rv">
@@ -832,7 +831,7 @@
 </section>
 
 <!-- ═══════════════════════════════════════════
-     GALLERY
+     GALLERY — See Us In Action
 ═══════════════════════════════════════════ -->
 <section class="gallery sec" id="gallery">
   <div class="wrap">
@@ -840,36 +839,149 @@
       <div class="tag">Our Work</div>
       <h2 class="display d-lg">See Us In Action</h2>
     </div>
+
+    <!-- Filter tabs — now includes Videos -->
     <div class="gfilters rv">
       <button class="gtab active" data-cat="all">All</button>
+      <button class="gtab" data-cat="video">▶ Videos</button>
       <button class="gtab" data-cat="jcb">JCB</button>
-      <button class="gtab" data-cat="materials">Materials</button>
       <button class="gtab" data-cat="exhauster">Exhauster</button>
+      <button class="gtab" data-cat="materials">Materials</button>
+      <button class="gtab" data-cat="transport">Transport</button>
     </div>
+
     <div class="ggrid rv" id="ggrid">
-      <div class="gi gw" data-cat="jcb"><img src="20221214_145959.webp" alt="JCB Backhoe Loader digging trench" loading="lazy"><div class="gov"><span class="glabel">JCB Backhoe — Trench Digging</span></div><div class="gzoom">⤢</div></div>
-      <div class="gi" data-cat="jcb"><img src="20240206_182346.webp" alt="JCB loading materials" loading="lazy"><div class="gov"><span class="glabel">JCB Loading Materials</span></div><div class="gzoom">⤢</div></div>
-      <div class="gi" data-cat="exhauster"><img src="20200221_064128.webp" alt="Exhauster truck in action" loading="lazy"><div class="gov"><span class="glabel">Exhauster Service</span></div><div class="gzoom">⤢</div></div>
-      <div class="gi" data-cat="materials"><img src="construction-river-sand (1).webp" alt="River sand supply" loading="lazy"><div class="gov"><span class="glabel">River Sand Supply</span></div><div class="gzoom">⤢</div></div>
-      <div class="gi" data-cat="materials"><img src="2-inch-ballast (1).webp" alt="Premium ballast" loading="lazy"><div class="gov"><span class="glabel">Premium Ballast</span></div><div class="gzoom">⤢</div></div>
-      <div class="gi" data-cat="materials"><img src="rocksand-0-4_2 (1).webp" alt="Rocksand 0-4mm" loading="lazy"><div class="gov"><span class="glabel">Rocksand 0–4mm</span></div><div class="gzoom">⤢</div></div>
-      <div class="gi" data-cat="materials"><img src="machine+cut+stone (1).webp" alt="Machine cut stones" loading="lazy"><div class="gov"><span class="glabel">Machine Cut Stones</span></div><div class="gzoom">⤢</div></div>
-      <div class="gi" data-cat="jcb"><img src="IMG_20180928_175219.webp" alt="JCB site levelling" loading="lazy"><div class="gov"><span class="glabel">Site Levelling</span></div><div class="gzoom">⤢</div></div>
-      <div class="gi" data-cat="exhauster"><img src="IMG_20181231_135930.webp" alt="Exhauster residential" loading="lazy"><div class="gov"><span class="glabel">Residential Septic Service</span></div><div class="gzoom">⤢</div></div>
-      <div class="gi" data-cat="materials"><img src="bfri6vd6vi5hcpw3xnat.webp" alt="Bulk sand delivery" loading="lazy"><div class="gov"><span class="glabel">Bulk Sand Delivery</span></div><div class="gzoom">⤢</div></div>
-    </div>
+
+      <!-- ── VIDEOS (span full width for impact) ── -->
+      <div class="gv gw" data-cat="video">
+        <video src="tractor1.mp4" muted loop playsinline preload="metadata"></video>
+        <div class="gvov"><span class="gvlabel">JCB Backhoe — Site Work</span></div>
+        <div class="gvplay">▶</div>
+        <div class="gvbadge">▶ Video</div>
+      </div>
+
+      <div class="gv gw" data-cat="video">
+        <video src="tractor2.mp4" muted loop playsinline preload="metadata"></video>
+        <div class="gvov"><span class="gvlabel">JCB in Action</span></div>
+        <div class="gvplay">▶</div>
+        <div class="gvbadge">▶ Video</div>
+      </div>
+
+      <!-- ── JCB IMAGES ── -->
+      <div class="gi gw" data-cat="jcb">
+        <img src="20221214_145959.webp" alt="JCB Backhoe Loader digging trench" loading="lazy">
+        <div class="gov"><span class="glabel">JCB Backhoe — Trench Digging</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="jcb">
+        <img src="20240206_182346.webp" alt="JCB loading materials on site" loading="lazy">
+        <div class="gov"><span class="glabel">JCB Loading Materials</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="jcb">
+        <img src="IMG_20180928_175219.webp" alt="JCB site levelling" loading="lazy">
+        <div class="gov"><span class="glabel">Site Levelling</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="jcb">
+        <img src="6d842927-fd1b-42b4-9ed2-52722d935b6f.webp" alt="JCB construction operations" loading="lazy">
+        <div class="gov"><span class="glabel">JCB Operations</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="jcb">
+        <img src="ypyibauwf6xe19xbrhut.webp" alt="JCB backhoe at work" loading="lazy">
+        <div class="gov"><span class="glabel">JCB Backhoe At Work</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="jcb">
+        <img src="kh60qwr8sbl34pjq8e5d.webp" alt="JCB excavation work" loading="lazy">
+        <div class="gov"><span class="glabel">Excavation Work</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+
+      <!-- ── EXHAUSTER IMAGES ── -->
+      <div class="gi" data-cat="exhauster">
+        <img src="20200221_064128.webp" alt="Exhauster truck in action" loading="lazy">
+        <div class="gov"><span class="glabel">Exhauster Service</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="exhauster">
+        <img src="IMG_20181231_135930.webp" alt="Exhauster residential service" loading="lazy">
+        <div class="gov"><span class="glabel">Residential Septic Service</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="exhauster">
+        <img src="18c84c24-a517-4bf5-a7cb-42abbbc0ba7a.webp" alt="Exhauster operations" loading="lazy">
+        <div class="gov"><span class="glabel">Exhauster Operations</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="exhauster">
+        <img src="c25bd219-5d6f-461f-a452-f8e2bf264aca.webp" alt="Professional exhauster team" loading="lazy">
+        <div class="gov"><span class="glabel">Professional Exhauster Team</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+
+      <!-- ── MATERIALS IMAGES ── -->
+      <div class="gi" data-cat="materials">
+        <img src="construction-river-sand (1).webp" alt="River sand supply" loading="lazy">
+        <div class="gov"><span class="glabel">River Sand Supply</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="materials">
+        <img src="2-inch-ballast (1).webp" alt="Premium ballast" loading="lazy">
+        <div class="gov"><span class="glabel">Premium Ballast</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="materials">
+        <img src="rocksand-0-4_2 (1).webp" alt="Rocksand 0-4mm" loading="lazy">
+        <div class="gov"><span class="glabel">Rocksand 0–4mm</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="materials">
+        <img src="machine+cut+stone (1).webp" alt="Machine cut stones" loading="lazy">
+        <div class="gov"><span class="glabel">Machine Cut Stones</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="materials">
+        <img src="bfri6vd6vi5hcpw3xnat.webp" alt="Bulk sand delivery" loading="lazy">
+        <div class="gov"><span class="glabel">Bulk Sand Delivery</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="materials">
+        <img src="355c9273-9d79-4d98-8954-15cd5ecfc800.webp" alt="Construction materials" loading="lazy">
+        <div class="gov"><span class="glabel">Construction Materials</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="materials">
+        <img src="qttbtbdmpf69qeouk7ib.webp" alt="Quality materials" loading="lazy">
+        <div class="gov"><span class="glabel">Quality Materials</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+      <div class="gi" data-cat="materials">
+        <img src="x1qb3id9depdatunftus.webp" alt="Building materials supply" loading="lazy">
+        <div class="gov"><span class="glabel">Building Materials</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+
+      <!-- ── TRANSPORT IMAGES ── -->
+      <div class="gi gw" data-cat="transport">
+        <img src="lorry.jpg" alt="Almuwa delivery lorry" loading="lazy">
+        <div class="gov"><span class="glabel">Delivery Fleet</span></div>
+        <div class="gzoom">⤢</div>
+      </div>
+
+    </div><!-- /ggrid -->
   </div>
 </section>
 
-<!-- Lightbox -->
-<div class="lb" id="lb" role="dialog" aria-modal="true">
-  <button class="lbx" id="lbx" aria-label="Close image">✕</button>
-  <img id="lbimg" src="" alt="">
+<!-- Lightbox (handles both images and videos) -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Media viewer">
+  <button class="lbx" id="lbx" aria-label="Close">✕</button>
+  <img  class="lb-media" id="lbimg" src="" alt="" style="display:none;">
+  <video class="lb-video" id="lbvid" src="" controls autoplay playsinline style="display:none;"></video>
 </div>
 
-<!-- ═══════════════════════════════════════════
-     TESTIMONIALS
-═══════════════════════════════════════════ -->
+<!-- TESTIMONIALS -->
 <section class="testimonials sec" id="testimonials">
   <div class="wrap">
     <div class="thead rv">
@@ -884,9 +996,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     WHY US
-═══════════════════════════════════════════ -->
+<!-- WHY US -->
 <section class="why sec" id="why">
   <div class="wrap">
     <div class="why-inner">
@@ -918,9 +1028,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     CONTACT
-═══════════════════════════════════════════ -->
+<!-- CONTACT -->
 <section class="contact sec" id="contact">
   <div class="wrap">
     <div class="cinner">
@@ -972,9 +1080,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="ftop">
@@ -1005,26 +1111,22 @@
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════════
-     FLOATING WHATSAPP
-═══════════════════════════════════════════ -->
+<!-- FLOATING WHATSAPP -->
 <a href="https://wa.me/254722618007?text=Hello%20Almuwa%20Enterprises" class="waflt" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <div class="waflt-dot"></div>
   💬
 </a>
 
-<!-- ═══════════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════════ -->
+<!-- JAVASCRIPT -->
 <script>
 'use strict';
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-/* ── HEADER SCROLL ─────────────────────────── */
+/* ── HEADER SCROLL ─── */
 const hdr = document.getElementById('hdr');
 window.addEventListener('scroll', () => hdr.classList.toggle('on', window.scrollY > 50), { passive:true });
 
-/* ── MOBILE MENU ───────────────────────────── */
+/* ── MOBILE MENU ─── */
 const mbtn  = document.getElementById('mbtn');
 const nmenu = document.getElementById('nmenu');
 mbtn.addEventListener('click', () => {
@@ -1036,7 +1138,7 @@ nmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   nmenu.classList.remove('open'); mbtn.textContent = '☰';
 }));
 
-/* ── SMOOTH SCROLL ─────────────────────────── */
+/* ── SMOOTH SCROLL ─── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const t = document.querySelector(a.getAttribute('href'));
@@ -1046,7 +1148,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-/* ── HERO CAROUSEL ─────────────────────────── */
+/* ── HERO CAROUSEL ─── */
 (function() {
   const track    = document.getElementById('csTrack');
   const slides   = track.querySelectorAll('.cs-slide');
@@ -1054,11 +1156,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   const bar      = document.getElementById('csBar');
   const btnPrev  = document.getElementById('csPrev');
   const btnNext  = document.getElementById('csNext');
-  const INTERVAL = 5000; // 5 seconds
+  const INTERVAL = 5000;
   const COUNT    = slides.length;
-  let cur = 0, timer, startX = 0, progTimer, progStart;
+  let cur = 0, timer;
 
-  /* Build dots */
   slides.forEach((_, i) => {
     const d = document.createElement('button');
     d.className = 'cs-dot' + (i === 0 ? ' active' : '');
@@ -1082,55 +1183,46 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     resetProgress();
   }
 
-  /* Auto-advance */
   function startTimer() { timer = setTimeout(() => goTo(cur + 1, false), INTERVAL); }
   function resetTimer()  { clearTimeout(timer); startTimer(); }
 
-  /* Progress bar animation */
   function resetProgress() {
-    clearInterval(progTimer);
     bar.style.transition = 'none';
     bar.style.width = '0%';
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        bar.style.transition = `width ${INTERVAL}ms linear`;
-        bar.style.width = '100%';
-      });
-    });
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      bar.style.transition = `width ${INTERVAL}ms linear`;
+      bar.style.width = '100%';
+    }));
   }
 
   btnPrev.addEventListener('click', () => goTo(cur - 1));
   btnNext.addEventListener('click', () => goTo(cur + 1));
-
-  /* Keyboard */
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowLeft')  goTo(cur - 1);
     if (e.key === 'ArrowRight') goTo(cur + 1);
   });
 
-  /* Touch / swipe */
+  let startX = 0;
   track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive:true });
   track.addEventListener('touchend',   e => {
     const diff = startX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) goTo(diff > 0 ? cur + 1 : cur - 1);
   }, { passive:true });
 
-  /* Pause on hover */
-  track.closest('.hero').addEventListener('mouseenter', () => { clearTimeout(timer); });
+  track.closest('.hero').addEventListener('mouseenter', () => clearTimeout(timer));
   track.closest('.hero').addEventListener('mouseleave', resetTimer);
 
-  /* Boot */
   startTimer();
   resetProgress();
 })();
 
-/* ── SCROLL REVEAL ─────────────────────────── */
+/* ── SCROLL REVEAL ─── */
 const ro = new IntersectionObserver(es => {
   es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
 }, { threshold:0.07, rootMargin:'0px 0px -24px 0px' });
 document.querySelectorAll('.rv').forEach(el => ro.observe(el));
 
-/* ── COUNTERS ──────────────────────────────── */
+/* ── COUNTERS ─── */
 const co = new IntersectionObserver(es => {
   es.forEach(e => {
     if (!e.isIntersecting) return;
@@ -1142,35 +1234,77 @@ const co = new IntersectionObserver(es => {
 }, { threshold:0.6 });
 document.querySelectorAll('[data-target]').forEach(el => co.observe(el));
 
-/* ── GALLERY FILTER ────────────────────────── */
+/* ── GALLERY FILTER ─── */
 document.querySelectorAll('.gtab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.gtab').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
     const cat = tab.dataset.cat;
-    document.querySelectorAll('.gi').forEach(item => {
-      item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+    document.querySelectorAll('.gi, .gv').forEach(item => {
+      const show = cat === 'all' || item.dataset.cat === cat;
+      item.style.display = show ? '' : 'none';
     });
   });
 });
 
-/* ── LIGHTBOX ──────────────────────────────── */
+/* ── VIDEO HOVER PREVIEW ─── */
+document.querySelectorAll('.gv').forEach(card => {
+  const vid = card.querySelector('video');
+  if (!vid) return;
+  card.addEventListener('mouseenter', () => { vid.play(); });
+  card.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+});
+
+/* ── LIGHTBOX ─── */
 const lb    = document.getElementById('lb');
 const lbimg = document.getElementById('lbimg');
+const lbvid = document.getElementById('lbvid');
+
+function openLb(mediaSrc, isVideo, altText) {
+  if (isVideo) {
+    lbimg.style.display = 'none';
+    lbvid.style.display = 'block';
+    lbvid.src = mediaSrc;
+    lbvid.play();
+  } else {
+    lbvid.style.display = 'none';
+    lbvid.pause(); lbvid.src = '';
+    lbimg.style.display = 'block';
+    lbimg.src = mediaSrc;
+    lbimg.alt = altText || '';
+  }
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLb() {
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+  lbvid.pause(); lbvid.src = '';
+  lbimg.src = '';
+}
+
+/* Image lightbox */
 document.querySelectorAll('.gi').forEach(item => {
   item.addEventListener('click', () => {
     const img = item.querySelector('img');
-    if (!img) return;
-    lbimg.src = img.src; lbimg.alt = img.alt;
-    lb.classList.add('open'); document.body.style.overflow = 'hidden';
+    if (img) openLb(img.src, false, img.alt);
   });
 });
-function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+
+/* Video lightbox */
+document.querySelectorAll('.gv').forEach(item => {
+  item.addEventListener('click', () => {
+    const vid = item.querySelector('video');
+    if (vid) openLb(vid.src, true);
+  });
+});
+
 document.getElementById('lbx').addEventListener('click', closeLb);
 lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 
-/* ── CONTACT FORM (Netlify) ────────────────── */
+/* ── CONTACT FORM ─── */
 const form     = document.getElementById('cform');
 const fsuccess = document.getElementById('fsuccess');
 if (form) {
