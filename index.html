@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Almuwa Enterprises | Building Materials, Exhauster & JCB Hire – Nairobi</title>
   <meta name="description" content="Almuwa Enterprises – Nairobi's trusted supplier of sand, ballast, rocksand, machine cut stones, professional exhauster services and JCB backhoe loader hire. Call 0722-618007 today.">
   <meta name="keywords" content="building materials Nairobi, exhauster services Nairobi, JCB hire Nairobi, sand ballast rocksand, machine cut stones Karen, construction materials Kenya">
@@ -12,399 +12,730 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Almuwa Enterprises | Building Materials & JCB Hire – Nairobi">
   <meta property="og:description" content="Quality sand, ballast, rocksand, machine cut stones, exhauster services and JCB backhoe hire in Nairobi, Kenya.">
-  <meta property="og:image" content="https://almuwa-enterprises.netlify.app/18c84c24-a517-4bf5-a7cb-42abbbc0ba7a.webp">
+  <meta property="og:image" content="https://almuwa-enterprises.netlify.app/20221214_145959.webp">
   <meta property="og:url" content="https://almuwa-enterprises.netlify.app">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23c0392b'/><text y='.9em' font-size='65' x='10'>🏗</text></svg>">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --red:#c0392b; --red-light:#e74c3c; --red-pale:#fdf0ee;
-      --ink:#111111; --ink-2:#2c2c2c; --ink-3:#4a4a4a;
-      --muted:#7a7a7a; --cream:#f5f3ef; --white:#ffffff;
-      --border:#e2ddd6; --dark:#0f0f0f;
-      --head:'Syne',sans-serif; --body:'Plus Jakarta Sans',sans-serif;
-      --r:12px; --r-lg:20px;
-      --ease:cubic-bezier(0.4,0,0.2,1); --dur:0.3s;
+  /* ================================================================
+     TOKENS
+  ================================================================ */
+  :root {
+    --red:       #c0392b;
+    --red-d:     #a93226;
+    --red-pale:  #fdf0ee;
+    --ink:       #111;
+    --ink-2:     #2c2c2c;
+    --ink-3:     #4a4a4a;
+    --muted:     #7a7a7a;
+    --cream:     #f5f3ef;
+    --white:     #fff;
+    --border:    #e2ddd6;
+    --dark:      #0d0d0d;
+    --dark-2:    #161616;
+
+    --head: 'Syne', sans-serif;
+    --body: 'Plus Jakarta Sans', sans-serif;
+
+    --ease: cubic-bezier(.4,0,.2,1);
+    --dur:  .3s;
+    --r:    12px;
+    --r-lg: 20px;
+  }
+
+  /* ================================================================
+     BASE  (mobile-first)
+  ================================================================ */
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; -webkit-tap-highlight-color:transparent; }
+  body {
+    font-family: var(--body);
+    background: var(--white);
+    color: var(--ink);
+    overflow-x: hidden;
+    line-height: 1.65;
+  }
+  a  { color:inherit; text-decoration:none; }
+  img { display:block; max-width:100%; }
+  button { font-family:var(--body); cursor:pointer; }
+
+  /* ================================================================
+     LAYOUT HELPERS
+  ================================================================ */
+  .wrap  { width:100%; padding:0 1.1rem; }          /* mobile gutters */
+  .sec   { padding:3.5rem 0; }
+  .tag {
+    display:inline-flex; align-items:center; gap:.45rem;
+    font-size:.65rem; font-weight:700; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--red); margin-bottom:.8rem;
+  }
+  .tag::before { content:''; width:18px; height:2px; background:var(--red); display:inline-block; }
+  .display {
+    font-family:var(--head); font-weight:800;
+    line-height:1.03; letter-spacing:-.02em; color:var(--ink);
+  }
+  /* Mobile type scale */
+  .d-xl { font-size:clamp(2rem,8vw,5rem); }
+  .d-lg { font-size:clamp(1.7rem,6vw,3rem); }
+  .d-md { font-size:clamp(1.4rem,5vw,2.4rem); }
+
+  /* ================================================================
+     BUTTONS
+  ================================================================ */
+  .btn {
+    display:inline-flex; align-items:center; justify-content:center;
+    gap:.45rem; font-size:.82rem; font-weight:700;
+    letter-spacing:.04em; padding:.85rem 1.75rem;
+    border-radius:50px; border:none; transition:all var(--dur) var(--ease);
+  }
+  .btn-red  { background:var(--red); color:#fff; }
+  .btn-red:hover  { background:var(--red-d); transform:translateY(-2px); box-shadow:0 10px 28px rgba(192,57,43,.32); }
+  .btn-ghost-w { background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.3); }
+  .btn-ghost-w:hover { border-color:#fff; background:rgba(255,255,255,.08); }
+  .btn-outline { background:transparent; color:var(--ink); border:1.5px solid var(--border); }
+  .btn-outline:hover { border-color:var(--ink); background:var(--cream); }
+  .btn-full { width:100%; }
+
+  /* ================================================================
+     HEADER  (mobile-first)
+  ================================================================ */
+  #hdr {
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    padding:0 1.1rem;
+    transition:background var(--dur), box-shadow var(--dur);
+  }
+  #hdr.on {
+    background:rgba(255,255,255,.97);
+    box-shadow:0 1px 0 var(--border);
+    backdrop-filter:blur(10px);
+  }
+  #hdr.on .lmark { color:var(--ink); }
+  #hdr.on .lsub  { color:var(--red); }
+  #hdr.on .nl    { color:var(--ink-3); }
+  #hdr.on .mbtn  { border-color:var(--border); color:var(--ink); }
+
+  .nav-inner {
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .logo-wrap { display:flex; flex-direction:column; line-height:1.2; }
+  .lmark { font-family:var(--head); font-weight:800; font-size:1.05rem; letter-spacing:.02em; color:#fff; text-transform:uppercase; transition:color var(--dur); }
+  .lsub  { font-size:.55rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:#f3a09a; transition:color var(--dur); }
+
+  .nmenu {
+    display:none; /* hidden on mobile */
+    position:fixed; top:64px; left:0; right:0;
+    background:rgba(255,255,255,.98); backdrop-filter:blur(16px);
+    flex-direction:column; padding:1.25rem 1.1rem 1.5rem;
+    border-bottom:1px solid var(--border);
+    list-style:none; gap:.15rem;
+  }
+  .nmenu.open { display:flex; }
+  .nl {
+    display:block; font-size:.78rem; font-weight:600;
+    letter-spacing:.07em; text-transform:uppercase;
+    color:var(--ink-3); padding:.75rem 1rem; border-radius:8px;
+    transition:color var(--dur), background var(--dur);
+  }
+  .nl:hover { color:var(--ink); background:var(--cream); }
+  .nl-cta {
+    background:var(--red); color:#fff !important;
+    border-radius:50px; text-align:center; margin-top:.5rem;
+    padding:.75rem 1rem;
+  }
+  .nl-cta:hover { background:var(--red-d) !important; }
+
+  .mbtn {
+    display:flex; align-items:center; justify-content:center;
+    background:none; border:1.5px solid rgba(255,255,255,.28);
+    color:#fff; font-size:1.15rem; width:40px; height:40px;
+    border-radius:8px; transition:all var(--dur);
+  }
+
+  /* ================================================================
+     HERO CAROUSEL  (mobile-first)
+  ================================================================ */
+  .hero {
+    position:relative; width:100%;
+    height:100svh; min-height:580px; max-height:900px;
+    overflow:hidden; background:var(--dark);
+  }
+
+  /* Slides track */
+  .cs-track {
+    display:flex; height:100%;
+    transition:transform .7s var(--ease);
+    will-change:transform;
+  }
+  .cs-slide {
+    position:relative;
+    min-width:100%; height:100%;
+    flex-shrink:0;
+  }
+  .cs-slide img {
+    width:100%; height:100%;
+    object-fit:cover; object-position:center 35%;
+    filter:brightness(.55);
+  }
+  /* Gradient overlay on each slide */
+  .cs-slide::after {
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(
+      to top,
+      rgba(13,13,13,.9) 0%,
+      rgba(13,13,13,.4) 45%,
+      rgba(13,13,13,.15) 100%
+    );
+  }
+
+  /* Slide badge (vehicle label) */
+  .cs-badge {
+    position:absolute; top:1.2rem; right:1.2rem; z-index:3;
+    background:rgba(192,57,43,.9); color:#fff;
+    font-size:.6rem; font-weight:700; letter-spacing:.18em;
+    text-transform:uppercase; padding:.3rem .8rem; border-radius:50px;
+    backdrop-filter:blur(4px);
+    opacity:0; transform:translateY(-6px);
+    transition:opacity .5s .4s, transform .5s .4s;
+  }
+  .cs-slide.active .cs-badge { opacity:1; transform:translateY(0); }
+
+  /* Hero text content  (sits above all slides) */
+  .hero-content {
+    position:absolute; inset:0; z-index:10;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:0 1.25rem 5.5rem;
+  }
+  .hero-eyebrow {
+    display:inline-flex; align-items:center; gap:.55rem;
+    font-size:.62rem; font-weight:700; letter-spacing:.17em;
+    text-transform:uppercase; color:#f3a09a; margin-bottom:1rem;
+    opacity:0; animation:fadeUp .7s .2s var(--ease) forwards;
+  }
+  .hero-eyebrow span { width:20px; height:1.5px; background:var(--red); display:inline-block; }
+  .hero h1 {
+    font-family:var(--head); font-weight:800;
+    font-size:clamp(2.2rem,9vw,5rem);
+    line-height:1; letter-spacing:-.025em;
+    color:#fff; margin-bottom:1rem;
+    opacity:0; animation:fadeUp .7s .35s var(--ease) forwards;
+  }
+  .hero h1 em { color:var(--red); font-style:normal; display:block; }
+  .hero-desc {
+    font-size:.875rem; color:rgba(255,255,255,.6);
+    max-width:380px; line-height:1.75; margin-bottom:1.5rem;
+    opacity:0; animation:fadeUp .7s .5s var(--ease) forwards;
+  }
+  .hero-tags {
+    display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1.75rem;
+    opacity:0; animation:fadeUp .7s .6s var(--ease) forwards;
+  }
+  .htag {
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14);
+    color:rgba(255,255,255,.75); font-size:.68rem; font-weight:500;
+    padding:.28rem .75rem; border-radius:50px;
+  }
+  .hero-btns {
+    display:flex; gap:.65rem; flex-wrap:wrap;
+    opacity:0; animation:fadeUp .7s .72s var(--ease) forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(20px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  /* Carousel controls */
+  .cs-dots {
+    position:absolute; bottom:2.5rem; left:50%;
+    transform:translateX(-50%); z-index:11;
+    display:flex; gap:.5rem;
+  }
+  .cs-dot {
+    width:6px; height:6px; border-radius:50%;
+    background:rgba(255,255,255,.3); border:none;
+    padding:0; transition:all .3s var(--ease); cursor:pointer;
+  }
+  .cs-dot.active { width:24px; border-radius:3px; background:var(--red); }
+
+  /* Prev/Next arrows — hidden on tiny mobile */
+  .cs-arrow {
+    display:none; /* shown at sm+ */
+    position:absolute; top:50%; z-index:11;
+    transform:translateY(-50%);
+    width:44px; height:44px; border-radius:50%;
+    background:rgba(255,255,255,.12); border:1.5px solid rgba(255,255,255,.2);
+    color:#fff; font-size:1.1rem; backdrop-filter:blur(6px);
+    align-items:center; justify-content:center;
+    transition:background var(--dur), transform var(--dur);
+  }
+  .cs-arrow:hover { background:var(--red); transform:translateY(-50%) scale(1.07); }
+  .cs-prev { left:1rem; }
+  .cs-next { right:1rem; }
+
+  /* Progress bar */
+  .cs-progress {
+    position:absolute; bottom:0; left:0; right:0; z-index:11;
+    height:3px; background:rgba(255,255,255,.1);
+  }
+  .cs-progress-bar {
+    height:100%; background:var(--red); width:0%;
+    transition:width .05s linear;
+  }
+
+  /* ================================================================
+     TICKER
+  ================================================================ */
+  .ticker-wrap { background:var(--red); overflow:hidden; padding:.75rem 0; }
+  .ticker { display:flex; gap:2.5rem; width:max-content; animation:tick 24s linear infinite; }
+  .ti { display:flex; align-items:center; gap:.5rem; font-size:.65rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.85); white-space:nowrap; }
+  .tdot { width:4px; height:4px; background:rgba(255,255,255,.45); border-radius:50%; }
+  @keyframes tick { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+  /* ================================================================
+     STATS  (mobile: 2×2 grid)
+  ================================================================ */
+  .stats { background:var(--cream); }
+  .stats-grid {
+    display:grid; grid-template-columns:1fr 1fr;
+    background:var(--white); border:1px solid var(--border);
+    border-radius:var(--r-lg); overflow:hidden;
+  }
+  .scell {
+    padding:1.75rem 1.2rem; text-align:center;
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    transition:background var(--dur);
+  }
+  .scell:nth-child(2) { border-right:none; }
+  .scell:nth-child(3) { border-bottom:none; }
+  .scell:nth-child(4) { border-right:none; border-bottom:none; }
+  .scell:hover { background:var(--red-pale); }
+  .sbig { font-family:var(--head); font-size:2.4rem; font-weight:800; color:var(--red); line-height:1; margin-bottom:.3rem; }
+  .slbl { font-size:.62rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+
+  /* ================================================================
+     ABOUT
+  ================================================================ */
+  .about { background:var(--white); }
+  .about-text .display { margin-bottom:1.2rem; }
+  .about-text p { color:var(--ink-3); font-size:.88rem; margin-bottom:.85rem; line-height:1.8; }
+  .achecks { display:grid; grid-template-columns:1fr 1fr; gap:.5rem 1.2rem; margin-top:1.4rem; }
+  .achk { display:flex; align-items:center; gap:.5rem; font-size:.78rem; font-weight:600; color:var(--ink-2); }
+  .achk::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--red); flex-shrink:0; }
+  .dcard {
+    background:var(--cream); border-radius:var(--r-lg);
+    padding:1.75rem; position:relative; overflow:hidden;
+    margin-top:2rem;
+  }
+  .dcard::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--red); }
+  .davatar { width:54px; height:54px; background:var(--red); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:1rem; }
+  .dname  { font-family:var(--head); font-size:1.15rem; font-weight:800; color:var(--ink); margin-bottom:.15rem; }
+  .drole  { font-size:.62rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--red); margin-bottom:.75rem; }
+  .dquote { font-size:.82rem; color:var(--ink-3); line-height:1.75; font-style:italic; border-left:2px solid var(--red); padding-left:.85rem; margin-bottom:1.2rem; }
+  .dbadges { display:flex; flex-direction:column; gap:.55rem; }
+  .dbadge { display:flex; align-items:center; gap:.6rem; font-size:.76rem; font-weight:500; color:var(--ink-3); }
+  .dbicon { width:26px; height:26px; border-radius:7px; background:rgba(192,57,43,.1); display:flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0; }
+
+  /* ================================================================
+     SERVICES  (mobile: 1 col)
+  ================================================================ */
+  .services { background:var(--cream); }
+  .svc-grid { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden; margin-top:2rem; }
+  .svc {
+    background:var(--white); padding:1.6rem;
+    position:relative; overflow:hidden;
+    transition:background var(--dur);
+  }
+  .svc:hover { background:var(--red-pale); }
+  .svc:hover .sarrow { opacity:1; transform:translate(0,0); }
+  .svc:hover .snum { color:rgba(192,57,43,.1); }
+  .snum { font-family:var(--head); font-size:3.5rem; font-weight:800; color:rgba(0,0,0,.05); line-height:1; position:absolute; top:.6rem; right:1rem; pointer-events:none; transition:color var(--dur); }
+  .siw { width:44px; height:44px; border-radius:11px; background:var(--red-pale); border:1px solid rgba(192,57,43,.12); display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:1rem; }
+  .svc:hover .siw { background:rgba(192,57,43,.15); }
+  .stitle { font-family:var(--head); font-size:1rem; font-weight:800; color:var(--ink); text-transform:uppercase; letter-spacing:.02em; margin-bottom:.45rem; }
+  .sdesc  { font-size:.78rem; color:var(--muted); line-height:1.7; margin-bottom:.85rem; }
+  .slist  { list-style:none; display:flex; flex-direction:column; gap:.25rem; }
+  .slist li { font-size:.74rem; color:var(--ink-3); font-weight:500; display:flex; align-items:center; gap:.42rem; }
+  .slist li::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--red); flex-shrink:0; }
+  .sarrow { position:absolute; bottom:1.1rem; right:1.1rem; width:24px; height:24px; border-radius:50%; background:var(--red); color:#fff; display:flex; align-items:center; justify-content:center; font-size:.65rem; opacity:0; transform:translate(4px,4px); transition:all var(--dur); }
+  /* JCB dark card */
+  .svc-jcb { background:var(--ink) !important; }
+  .svc-jcb:hover { background:var(--ink-2) !important; }
+  .svc-jcb .snum { color:rgba(255,255,255,.04); }
+  .svc-jcb:hover .snum { color:rgba(192,57,43,.08); }
+  .svc-jcb .stitle { color:#fff; }
+  .svc-jcb .sdesc  { color:rgba(255,255,255,.45); }
+  .svc-jcb .slist li { color:rgba(255,255,255,.6); }
+  .svc-jcb .siw { background:rgba(192,57,43,.2); border-color:rgba(192,57,43,.3); }
+  .svc-jcb .sarrow { opacity:1; transform:none; }
+  .jbadge { display:inline-flex; align-items:center; gap:.4rem; background:var(--red); color:#fff; font-size:.57rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; padding:.18rem .65rem; border-radius:50px; margin-bottom:.65rem; }
+
+  /* ================================================================
+     GALLERY  (mobile: 1 col → grid at md)
+  ================================================================ */
+  .gallery { background:var(--white); }
+  .gfilters { display:flex; gap:.4rem; flex-wrap:wrap; margin-top:1.5rem; margin-bottom:1.5rem; }
+  .gtab { font-family:var(--body); font-size:.65rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.4rem 1rem; border-radius:50px; border:1.5px solid var(--border); background:transparent; color:var(--muted); transition:all var(--dur); }
+  .gtab.active, .gtab:hover { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .ggrid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .gi { position:relative; overflow:hidden; border-radius:var(--r); background:var(--cream); cursor:pointer; }
+  .gi img { width:100%; height:160px; object-fit:cover; transition:transform .5s var(--ease); display:block; }
+  .gi.gw { grid-column:span 2; }
+  .gi.gw img { height:220px; }
+  .gi:hover img { transform:scale(1.06); }
+  .gov { position:absolute; inset:0; background:linear-gradient(to top, rgba(13,13,13,.8) 0%, transparent 55%); opacity:0; transition:opacity var(--dur); display:flex; align-items:flex-end; padding:1rem; }
+  .gi:hover .gov { opacity:1; }
+  .glabel { font-family:var(--head); font-size:.75rem; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:.03em; }
+  .gzoom { position:absolute; top:.7rem; right:.7rem; width:30px; height:30px; border-radius:50%; background:rgba(255,255,255,.9); display:flex; align-items:center; justify-content:center; font-size:.7rem; color:var(--ink); opacity:0; transform:scale(.8); transition:all var(--dur); }
+  .gi:hover .gzoom { opacity:1; transform:scale(1); }
+
+  /* Lightbox */
+  .lb { display:none; position:fixed; inset:0; z-index:2000; background:rgba(8,8,8,.95); backdrop-filter:blur(12px); align-items:center; justify-content:center; padding:1.25rem; }
+  .lb.open { display:flex; }
+  .lb img { max-width:100%; max-height:88vh; border-radius:var(--r); object-fit:contain; }
+  .lbx { position:absolute; top:1rem; right:1rem; background:rgba(255,255,255,.12); border:none; color:#fff; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2rem; transition:background var(--dur); }
+  .lbx:hover { background:var(--red); }
+
+  /* ================================================================
+     TESTIMONIALS
+  ================================================================ */
+  .testimonials { background:var(--ink); }
+  .thead .display { color:#fff; }
+  .thead .tag { color:#f3a09a; }
+  .thead .tag::before { background:var(--red); }
+  .tgrid { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+  .tc { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:var(--r-lg); padding:1.6rem; transition:background var(--dur), border-color var(--dur); }
+  .tc:hover { background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.12); }
+  .tstars { color:#f39c12; font-size:.9rem; margin-bottom:1rem; letter-spacing:2px; }
+  .tq { font-size:.83rem; color:rgba(255,255,255,.6); line-height:1.8; margin-bottom:1.3rem; font-style:italic; }
+  .tdiv { height:1px; background:rgba(255,255,255,.08); margin-bottom:.85rem; }
+  .tauth { font-size:.76rem; font-weight:700; color:#fff; }
+  .trole { font-size:.68rem; color:rgba(255,255,255,.3); margin-top:.12rem; }
+
+  /* ================================================================
+     WHY US  (mobile: stacked)
+  ================================================================ */
+  .why { background:var(--cream); }
+  .wpts { display:flex; flex-direction:column; margin-top:1.5rem; }
+  .wpt { display:flex; gap:1.2rem; align-items:flex-start; padding:1.25rem 0; border-bottom:1px solid var(--border); }
+  .wpt:first-child { border-top:1px solid var(--border); }
+  .wn { font-family:var(--head); font-size:.9rem; font-weight:800; color:var(--red); min-width:24px; padding-top:.05rem; }
+  .wpt h4 { font-family:var(--head); font-size:.92rem; font-weight:700; color:var(--ink); text-transform:uppercase; margin-bottom:.25rem; }
+  .wpt p  { font-size:.78rem; color:var(--muted); line-height:1.7; }
+  .qcard { background:var(--ink); border-radius:var(--r-lg); padding:2rem; margin-top:2rem; position:relative; overflow:hidden; }
+  .qcard::before { content:'\201C'; font-family:var(--head); font-size:6rem; font-weight:800; color:rgba(255,255,255,.04); line-height:1; position:absolute; top:-.5rem; left:1.5rem; pointer-events:none; }
+  .qcard h3 { font-family:var(--head); font-size:1.5rem; font-weight:800; color:#fff; text-transform:uppercase; line-height:1.1; margin-bottom:.8rem; }
+  .qcard > p { font-size:.82rem; color:rgba(255,255,255,.45); margin-bottom:1.5rem; }
+  .qlinks { display:flex; flex-direction:column; gap:.65rem; margin-top:1.5rem; }
+  .qlink { display:flex; align-items:center; gap:.75rem; font-size:.82rem; color:rgba(255,255,255,.65); font-weight:500; transition:color var(--dur); }
+  .qlink:hover { color:#fff; }
+  .qlicon { width:32px; height:32px; border-radius:8px; background:rgba(255,255,255,.07); display:flex; align-items:center; justify-content:center; font-size:.9rem; flex-shrink:0; }
+  .qwa { background:rgba(37,211,102,.15) !important; border:1.5px solid rgba(37,211,102,.3) !important; color:rgba(255,255,255,.85) !important; border-radius:50px; padding:.6rem 1.2rem; }
+
+  /* ================================================================
+     CONTACT  (mobile: stacked)
+  ================================================================ */
+  .contact { background:var(--white); }
+  .cinfo > p { font-size:.84rem; color:var(--muted); margin-bottom:1.6rem; }
+  .ccards { display:flex; flex-direction:column; gap:.65rem; margin-bottom:2rem; }
+  .cc { display:flex; align-items:center; gap:.9rem; padding:.95rem 1.1rem; border:1px solid var(--border); border-radius:var(--r); background:var(--white); transition:all var(--dur); }
+  a.cc:hover { border-color:var(--red); background:var(--red-pale); transform:translateX(4px); }
+  .ccicon { width:36px; height:36px; border-radius:9px; background:var(--cream); display:flex; align-items:center; justify-content:center; font-size:.9rem; flex-shrink:0; }
+  .cclbl { font-size:.6rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--red); margin-bottom:.15rem; }
+  .ccval { font-size:.82rem; font-weight:600; color:var(--ink); }
+  .cc-wa { border-color:#d4efdf; background:#f0faf3; }
+  .cc-wa .ccicon { background:#d4efdf; }
+  .cc-wa .cclbl { color:#27ae60; }
+  a.cc-wa:hover { border-color:#27ae60; background:#e0f7e9; }
+  /* Form */
+  .cfbox { background:var(--cream); border-radius:var(--r-lg); padding:1.75rem; border:1px solid var(--border); }
+  .fhead { font-family:var(--head); font-size:1.3rem; font-weight:800; color:var(--ink); text-transform:uppercase; letter-spacing:-.01em; margin-bottom:.3rem; }
+  .fsub  { font-size:.76rem; color:var(--muted); margin-bottom:1.6rem; }
+  .frow  { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
+  .fg    { margin-bottom:.85rem; }
+  .fg label { display:block; font-size:.62rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); margin-bottom:.38rem; }
+  .fg input, .fg textarea, .fg select {
+    width:100%; padding:.75rem .9rem;
+    background:var(--white); border:1.5px solid var(--border);
+    border-radius:var(--r); color:var(--ink); font-family:var(--body); font-size:.85rem;
+    transition:border-color var(--dur), box-shadow var(--dur); appearance:none;
+  }
+  .fg input:focus, .fg textarea:focus, .fg select:focus { outline:none; border-color:var(--red); box-shadow:0 0 0 3px rgba(192,57,43,.1); }
+  .fg textarea { resize:vertical; min-height:100px; }
+  .fsub-btn { width:100%; padding:.95rem; background:var(--ink); color:#fff; font-family:var(--body); font-size:.82rem; font-weight:700; letter-spacing:.06em; border:none; border-radius:50px; transition:all var(--dur); }
+  .fsub-btn:hover { background:var(--red); transform:translateY(-2px); }
+  .fnote { text-align:center; font-size:.7rem; color:var(--muted); margin-top:.65rem; }
+  .fnote a { color:var(--red); }
+  .fsuccess { display:none; text-align:center; padding:2rem 1rem; }
+  .fsuccess .si { font-size:2.6rem; margin-bottom:.75rem; }
+  .fsuccess h4 { font-family:var(--head); font-size:1.2rem; font-weight:800; color:var(--ink); text-transform:uppercase; margin-bottom:.4rem; }
+  .fsuccess p { font-size:.8rem; color:var(--muted); margin-bottom:1.2rem; }
+
+  /* ================================================================
+     FOOTER
+  ================================================================ */
+  footer { background:var(--ink-2); color:rgba(255,255,255,.5); }
+  .ftop { padding:3rem 0 2rem; border-bottom:1px solid rgba(255,255,255,.07); display:flex; flex-direction:column; gap:2rem; }
+  .fbrand .lmark { color:#fff; font-size:1rem; display:block; margin-bottom:.2rem; }
+  .fbrand .lsub  { color:rgba(192,57,43,.8); display:block; margin-bottom:.75rem; }
+  .fbrand p { font-size:.76rem; line-height:1.7; }
+  .fcol h6 { font-family:var(--head); font-size:.68rem; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:#fff; margin-bottom:.9rem; }
+  .fcol ul { list-style:none; display:flex; flex-direction:column; gap:.4rem; }
+  .fcol li { font-size:.76rem; }
+  .fcol a { transition:color var(--dur); }
+  .fcol a:hover { color:#fff; }
+  .fbot { display:flex; flex-direction:column; gap:.4rem; align-items:center; text-align:center; padding:1.25rem 0; font-size:.68rem; }
+
+  /* ================================================================
+     FLOATING WA BUTTON
+  ================================================================ */
+  .waflt {
+    position:fixed; bottom:1.25rem; right:1.25rem; z-index:900;
+    width:52px; height:52px; border-radius:50%;
+    background:#25d366; color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem;
+    box-shadow:0 6px 22px rgba(37,211,102,.45);
+    transition:transform var(--dur), box-shadow var(--dur);
+  }
+  .waflt:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(37,211,102,.55); }
+  .waflt-dot { position:absolute; top:-2px; right:-2px; width:12px; height:12px; border-radius:50%; background:var(--red); border:2px solid #fff; animation:wpulse 2s ease infinite; }
+  @keyframes wpulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.35)} }
+
+  /* ================================================================
+     SCROLL REVEAL
+  ================================================================ */
+  .rv { opacity:0; transform:translateY(22px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
+  .rv.in { opacity:1; transform:translateY(0); }
+  .rv1 { transition-delay:.1s; }
+  .rv2 { transition-delay:.2s; }
+
+  /* ================================================================
+     TABLET  ≥ 600px
+  ================================================================ */
+  @media (min-width:600px) {
+    .wrap  { padding:0 1.5rem; }
+    .sec   { padding:4.5rem 0; }
+    .svc-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5px; }
+    .svc-jcb  { grid-column:span 2; }
+    .svc-jcb .slist { display:grid; grid-template-columns:1fr 1fr; }
+    .ggrid { grid-template-columns:repeat(3,1fr); gap:10px; }
+    .gi img { height:200px; }
+    .gi.gw img { height:280px; }
+    .tgrid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+    .frow  { grid-template-columns:1fr 1fr; }
+    .fbot  { flex-direction:row; justify-content:space-between; }
+  }
+
+  /* ================================================================
+     DESKTOP  ≥ 900px
+  ================================================================ */
+  @media (min-width:900px) {
+    .wrap  { padding:0 2rem; max-width:1240px; margin:0 auto; }
+    .sec   { padding:6rem 0; }
+    .nav-inner { height:72px; }
+    .lmark { font-size:1.15rem; }
+    .nmenu {
+      display:flex !important; /* override mobile hide */
+      position:static;
+      flex-direction:row; align-items:center;
+      background:none; backdrop-filter:none;
+      padding:0; border:none;
+      gap:.2rem;
     }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{font-family:var(--body);background:var(--white);color:var(--ink);overflow-x:hidden;line-height:1.65}
-    a{color:inherit;text-decoration:none}
-    img{display:block;max-width:100%}
-    button{font-family:var(--body)}
-    .container{max-width:1240px;margin:0 auto;padding:0 2rem}
-
-    /* SHARED */
-    .tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:.9rem}
-    .tag::before{content:'';width:20px;height:2px;background:var(--red);display:inline-block}
-    .display{font-family:var(--head);font-weight:800;line-height:1.02;letter-spacing:-.02em;color:var(--ink)}
-    .btn-red{display:inline-flex;align-items:center;gap:.5rem;background:var(--red);color:#fff;font-size:.8rem;font-weight:700;letter-spacing:.05em;padding:.85rem 2rem;border-radius:50px;border:none;cursor:pointer;transition:background var(--dur),transform var(--dur),box-shadow var(--dur)}
-    .btn-red:hover{background:#a93226;transform:translateY(-2px);box-shadow:0 10px 28px rgba(192,57,43,.3)}
-    .btn-ghost-w{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:#fff;font-size:.8rem;font-weight:700;letter-spacing:.05em;padding:.85rem 2rem;border-radius:50px;border:1.5px solid rgba(255,255,255,.3);transition:border-color var(--dur),background var(--dur)}
-    .btn-ghost-w:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-
-    /* HEADER */
-    #hdr{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;transition:background var(--dur),box-shadow var(--dur)}
-    #hdr.on{background:rgba(255,255,255,.97);box-shadow:0 1px 0 var(--border);backdrop-filter:blur(10px)}
-    #hdr.on .lmark{color:var(--ink)}
-    #hdr.on .lsub{color:var(--red)}
-    #hdr.on .nl{color:var(--ink-3)}
-    #hdr.on .nl:hover{color:var(--ink)}
-    #hdr.on .mbtn{border-color:var(--border);color:var(--ink)}
-    nav{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
-    .lmark{font-family:var(--head);font-weight:800;font-size:1.15rem;letter-spacing:.02em;color:#fff;text-transform:uppercase;transition:color var(--dur)}
-    .lsub{font-size:.58rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#f3a09a;transition:color var(--dur)}
-    .nmenu{display:flex;list-style:none;align-items:center;gap:.2rem}
-    .nl{font-size:.75rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.75);padding:.5rem .9rem;border-radius:6px;transition:color var(--dur),background var(--dur)}
-    .nl:hover{color:#fff;background:rgba(255,255,255,.08)}
-    .ncta{background:var(--red)!important;color:#fff!important;padding:.5rem 1.2rem!important;border-radius:50px!important}
-    .ncta:hover{background:#a93226!important}
-    .mbtn{display:none;background:none;border:1.5px solid rgba(255,255,255,.25);color:#fff;font-size:1.1rem;padding:.38rem .72rem;border-radius:8px;cursor:pointer;transition:border-color var(--dur),color var(--dur)}
-
-    /* HERO */
-    .hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;background:var(--dark);overflow:hidden}
-    .hleft{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:10rem 3rem 5rem 4rem}
-    .hleft::before{content:'';position:absolute;left:0;top:10%;bottom:10%;width:3px;background:var(--red);border-radius:2px}
-    .hright{position:relative;overflow:hidden}
-    .hright img{width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:brightness(.7)}
-    .hright::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--dark) 0%,transparent 45%)}
-    .heyebrow{display:inline-flex;align-items:center;gap:.65rem;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#f3a09a;margin-bottom:1.4rem}
-    .heyebrow span{width:22px;height:1.5px;background:var(--red);display:inline-block}
-    .hero h1{font-family:var(--head);font-weight:800;font-size:clamp(2.6rem,5.5vw,5rem);line-height:1;letter-spacing:-.02em;color:#fff;margin-bottom:1.4rem}
-    .hero h1 em{color:var(--red);font-style:normal;display:block}
-    .hdesc{font-size:.9rem;color:rgba(255,255,255,.5);max-width:400px;line-height:1.8;margin-bottom:2rem}
-    .htags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2.2rem}
-    .htag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.7rem;font-weight:500;padding:.28rem .8rem;border-radius:50px}
-    .hactions{display:flex;gap:.75rem;flex-wrap:wrap}
-    .hscroll{position:absolute;bottom:2.5rem;left:4rem;display:flex;align-items:center;gap:.75rem;font-size:.65rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.25)}
-    .hline{width:36px;height:1px;background:rgba(255,255,255,.15);position:relative;overflow:hidden}
-    .hline::after{content:'';position:absolute;left:-100%;top:0;width:100%;height:100%;background:var(--red);animation:lineAnim 2.2s ease infinite}
-    @keyframes lineAnim{to{left:100%}}
-
-    /* TICKER */
-    .ticker-wrap{background:var(--red);overflow:hidden;padding:.85rem 0}
-    .ticker{display:flex;gap:3rem;width:max-content;animation:tickMove 26s linear infinite}
-    .titem{display:flex;align-items:center;gap:.6rem;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);white-space:nowrap}
-    .tdot{width:4px;height:4px;background:rgba(255,255,255,.45);border-radius:50%}
-    @keyframes tickMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-    /* STATS */
-    .stats{background:var(--cream);padding:4rem 0}
-    .stats-box{display:grid;grid-template-columns:repeat(4,1fr);background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
-    .scell{padding:2.4rem 1.8rem;text-align:center;border-right:1px solid var(--border);transition:background var(--dur)}
-    .scell:last-child{border-right:none}
-    .scell:hover{background:var(--red-pale)}
-    .sbig{font-family:var(--head);font-size:3rem;font-weight:800;color:var(--red);line-height:1;margin-bottom:.35rem}
-    .slabel{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-
-    /* ABOUT */
-    .about{background:var(--white);padding:6rem 0}
-    .about-grid{display:grid;grid-template-columns:5fr 4fr;gap:5rem;align-items:center}
-    .at .display{font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:1.4rem}
-    .at p{color:var(--ink-3);font-size:.9rem;margin-bottom:1rem;line-height:1.8}
-    .achecks{display:grid;grid-template-columns:1fr 1fr;gap:.55rem 1.8rem;margin-top:1.6rem}
-    .acheck{display:flex;align-items:center;gap:.55rem;font-size:.8rem;font-weight:600;color:var(--ink-2)}
-    .acheck::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0}
-    .dcard{background:var(--cream);border-radius:var(--r-lg);padding:2.4rem;position:relative;overflow:hidden}
-    .dcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
-    .davatar{width:60px;height:60px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin-bottom:1.1rem}
-    .dname{font-family:var(--head);font-size:1.25rem;font-weight:800;color:var(--ink);letter-spacing:-.01em;margin-bottom:.15rem}
-    .drole{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:.9rem}
-    .dquote{font-size:.85rem;color:var(--ink-3);line-height:1.75;font-style:italic;border-left:2px solid var(--red);padding-left:.9rem;margin-bottom:1.4rem}
-    .dbadges{display:flex;flex-direction:column;gap:.6rem}
-    .dbadge{display:flex;align-items:center;gap:.65rem;font-size:.78rem;font-weight:500;color:var(--ink-3)}
-    .dbicon{width:28px;height:28px;border-radius:7px;background:rgba(192,57,43,.1);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
-
-    /* SERVICES */
-    .services{background:var(--cream);padding:6rem 0}
-    .shead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.8rem;gap:2rem}
-    .shead .display{font-size:clamp(1.8rem,3.5vw,2.8rem)}
-    .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
-    .sc{background:var(--white);padding:2.1rem;position:relative;overflow:hidden;transition:background var(--dur)}
-    .sc:hover{background:var(--red-pale)}
-    .sc:hover .sarrow{opacity:1;transform:translate(0,0)}
-    .sc:hover .snum{color:rgba(192,57,43,.1)}
-    .snum{font-family:var(--head);font-size:4rem;font-weight:800;color:rgba(0,0,0,.05);line-height:1;position:absolute;top:.8rem;right:1.2rem;transition:color var(--dur);pointer-events:none}
-    .siw{width:46px;height:46px;border-radius:11px;background:var(--red-pale);border:1px solid rgba(192,57,43,.12);display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:1.1rem}
-    .sc:hover .siw{background:rgba(192,57,43,.15)}
-    .stitle{font-family:var(--head);font-size:1.05rem;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.02em;margin-bottom:.55rem}
-    .sdesc{font-size:.8rem;color:var(--muted);line-height:1.7;margin-bottom:1rem}
-    .slist{list-style:none;display:flex;flex-direction:column;gap:.28rem}
-    .slist li{font-size:.75rem;color:var(--ink-3);font-weight:500;display:flex;align-items:center;gap:.45rem}
-    .slist li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--red);flex-shrink:0}
-    .sarrow{position:absolute;bottom:1.3rem;right:1.3rem;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.7rem;opacity:0;transform:translate(4px,4px);transition:opacity var(--dur),transform var(--dur)}
-    /* JCB wide card */
-    .sc-jcb{grid-column:span 2;background:var(--ink)!important}
-    .sc-jcb:hover{background:var(--ink-2)!important}
-    .sc-jcb .snum{color:rgba(255,255,255,.04)}
-    .sc-jcb:hover .snum{color:rgba(192,57,43,.09)}
-    .sc-jcb .stitle{color:#fff}
-    .sc-jcb .sdesc{color:rgba(255,255,255,.45)}
-    .sc-jcb .slist li{color:rgba(255,255,255,.6)}
-    .sc-jcb .siw{background:rgba(192,57,43,.2);border-color:rgba(192,57,43,.3)}
-    .sc-jcb .sarrow{opacity:1;transform:none}
-    .sc-jcb .slist{display:grid;grid-template-columns:1fr 1fr}
-    .jbadge{display:inline-flex;align-items:center;gap:.4rem;background:var(--red);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.18rem .65rem;border-radius:50px;margin-bottom:.7rem}
-
-    /* GALLERY */
-    .gallery{background:var(--white);padding:6rem 0}
-    .ghead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.4rem;gap:2rem}
-    .ghead .display{font-size:clamp(1.8rem,3.5vw,2.8rem)}
-    .gfilters{display:flex;gap:.4rem;flex-wrap:wrap}
-    .gtab{font-family:var(--body);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.42rem 1.1rem;border-radius:50px;cursor:pointer;border:1.5px solid var(--border);background:transparent;color:var(--muted);transition:all var(--dur)}
-    .gtab.active,.gtab:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-    .ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    .gi{position:relative;overflow:hidden;border-radius:var(--r);background:var(--cream);cursor:pointer}
-    .gi img{width:100%;height:270px;object-fit:cover;transition:transform .5s var(--ease);display:block}
-    .gi.gw{grid-column:span 2}
-    .gi.gw img{height:350px}
-    .gi:hover img{transform:scale(1.06)}
-    .gov{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,15,15,.8) 0%,transparent 55%);opacity:0;transition:opacity var(--dur);display:flex;align-items:flex-end;padding:1.1rem 1.3rem}
-    .gi:hover .gov{opacity:1}
-    .glabel{font-family:var(--head);font-size:.82rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.03em}
-    .gzoom{position:absolute;top:.9rem;right:.9rem;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--ink);opacity:0;transform:scale(.8);transition:opacity var(--dur),transform var(--dur)}
-    .gi:hover .gzoom{opacity:1;transform:scale(1)}
-
-    /* LIGHTBOX */
-    .lb{display:none;position:fixed;inset:0;z-index:2000;background:rgba(8,8,8,.95);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:2rem}
-    .lb.open{display:flex}
-    .lb img{max-width:90vw;max-height:88vh;border-radius:var(--r);object-fit:contain}
-    .lbx{position:absolute;top:1.5rem;right:1.5rem;background:rgba(255,255,255,.1);border:none;color:#fff;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;transition:background var(--dur)}
-    .lbx:hover{background:var(--red)}
-
-    /* TESTIMONIALS */
-    .testimonials{background:var(--ink);padding:6rem 0}
-    .thead .display{color:#fff;font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:2.5rem}
-    .thead .tag{color:#f3a09a}
-    .thead .tag::before{background:var(--red)}
-    .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-    .tc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:2rem;transition:background var(--dur),border-color var(--dur)}
-    .tc:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12)}
-    .tstars{color:#f39c12;font-size:.95rem;margin-bottom:1.1rem;letter-spacing:2px}
-    .tq{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:1.4rem;font-style:italic}
-    .tdiv{height:1px;background:rgba(255,255,255,.08);margin-bottom:.9rem}
-    .tauth{font-size:.78rem;font-weight:700;color:#fff}
-    .trole{font-size:.7rem;color:rgba(255,255,255,.3);margin-top:.15rem}
-
-    /* WHY US */
-    .why{background:var(--cream);padding:6rem 0}
-    .wgrid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-    .wleft .display{font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:.7rem}
-    .wleft>p{font-size:.88rem;color:var(--muted);margin-bottom:2.2rem}
-    .wpts{display:flex;flex-direction:column}
-    .wpt{display:flex;gap:1.4rem;align-items:flex-start;padding:1.4rem 0;border-bottom:1px solid var(--border)}
-    .wpt:first-child{border-top:1px solid var(--border)}
-    .wn{font-family:var(--head);font-size:.95rem;font-weight:800;color:var(--red);min-width:26px;padding-top:.05rem}
-    .wpt h4{font-family:var(--head);font-size:.95rem;font-weight:700;color:var(--ink);text-transform:uppercase;margin-bottom:.28rem}
-    .wpt p{font-size:.8rem;color:var(--muted);line-height:1.7}
-    .wright{position:sticky;top:100px}
-    .qcard{background:var(--ink);border-radius:var(--r-lg);padding:2.8rem;position:relative;overflow:hidden}
-    .qcard::before{content:'\201C';font-family:var(--head);font-size:7rem;font-weight:800;color:rgba(255,255,255,.04);line-height:1;position:absolute;top:-1rem;left:1.8rem;pointer-events:none}
-    .qcard h3{font-family:var(--head);font-size:1.65rem;font-weight:800;color:#fff;text-transform:uppercase;line-height:1.1;margin-bottom:.9rem}
-    .qcard>p{font-size:.83rem;color:rgba(255,255,255,.45);margin-bottom:1.8rem}
-    .qlinks{display:flex;flex-direction:column;gap:.75rem;margin-top:1.8rem}
-    .qlink{display:flex;align-items:center;gap:.8rem;font-size:.83rem;color:rgba(255,255,255,.65);font-weight:500;transition:color var(--dur)}
-    .qlink:hover{color:#fff}
-    .qlicon{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
-    .qwa{background:rgba(37,211,102,.15)!important;border:1.5px solid rgba(37,211,102,.3)!important;color:rgba(255,255,255,.85)!important;border-radius:50px;padding:.6rem 1.2rem;margin-top:.3rem}
-
-    /* CONTACT */
-    .contact{background:var(--white);padding:6rem 0}
-    .cinner{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:start}
-    .cinfo .display{font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:.7rem}
-    .cinfo>p{font-size:.85rem;color:var(--muted);margin-bottom:1.8rem}
-    .ccards{display:flex;flex-direction:column;gap:.7rem}
-    .cc{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;border:1px solid var(--border);border-radius:var(--r);background:var(--white);transition:border-color var(--dur),background var(--dur),transform var(--dur)}
-    a.cc:hover{border-color:var(--red);background:var(--red-pale);transform:translateX(4px)}
-    .ccicon{width:38px;height:38px;border-radius:9px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
-    .cclabel{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:.18rem}
-    .ccval{font-size:.85rem;font-weight:600;color:var(--ink)}
-    .cc-wa{border-color:#d4efdf;background:#f0faf3}
-    .cc-wa .ccicon{background:#d4efdf}
-    .cc-wa .cclabel{color:#27ae60}
-    a.cc-wa:hover{border-color:#27ae60;background:#e0f7e9}
-    .cfbox{background:var(--cream);border-radius:var(--r-lg);padding:2.6rem;border:1px solid var(--border)}
-    .fhead{font-family:var(--head);font-size:1.4rem;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:-.01em;margin-bottom:.35rem}
-    .fsub{font-size:.78rem;color:var(--muted);margin-bottom:1.8rem}
-    .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-    .fg{margin-bottom:.9rem}
-    .fg label{display:block;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.4rem}
-    .fg input,.fg textarea,.fg select{width:100%;padding:.78rem .95rem;background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-sm,8px);color:var(--ink);font-family:var(--body);font-size:.85rem;transition:border-color var(--dur),box-shadow var(--dur);appearance:none}
-    .fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(192,57,43,.1)}
-    .fg textarea{resize:vertical;min-height:105px}
-    .fsub-btn{width:100%;padding:.95rem;background:var(--ink);color:#fff;font-family:var(--body);font-size:.82rem;font-weight:700;letter-spacing:.06em;border:none;border-radius:50px;cursor:pointer;transition:background var(--dur),transform var(--dur)}
-    .fsub-btn:hover{background:var(--red);transform:translateY(-2px)}
-    .fnote{text-align:center;font-size:.7rem;color:var(--muted);margin-top:.7rem}
-    .fnote a{color:var(--red)}
-    .fsuccess{display:none;text-align:center;padding:2rem}
-    .fsuccess .si{font-size:2.8rem;margin-bottom:.9rem}
-    .fsuccess h4{font-family:var(--head);font-size:1.3rem;font-weight:800;color:var(--ink);text-transform:uppercase;margin-bottom:.4rem}
-    .fsuccess p{font-size:.82rem;color:var(--muted);margin-bottom:1.4rem}
-
-    /* FOOTER */
-    footer{background:var(--ink-2);color:rgba(255,255,255,.5)}
-    .ftop{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;padding:4rem 0 3rem;border-bottom:1px solid rgba(255,255,255,.07)}
-    .fbrand .lmark{color:#fff;font-size:1.05rem;display:block;margin-bottom:.25rem}
-    .fbrand .lsub{color:rgba(192,57,43,.8);display:block;margin-bottom:.9rem}
-    .fbrand p{font-size:.78rem;line-height:1.7}
-    .fcol h6{font-family:var(--head);font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:1.1rem}
-    .fcol ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
-    .fcol li{font-size:.78rem}
-    .fcol a{transition:color var(--dur)}
-    .fcol a:hover{color:#fff}
-    .fbot{display:flex;justify-content:space-between;align-items:center;padding:1.4rem 0;font-size:.7rem;flex-wrap:wrap;gap:.5rem}
-
-    /* WA FLOAT */
-    .waflt{position:fixed;bottom:1.75rem;right:1.75rem;z-index:900;display:flex;align-items:center;gap:.65rem;background:#25d366;color:#fff;font-size:.75rem;font-weight:700;padding:.78rem 1.25rem;border-radius:50px;box-shadow:0 6px 22px rgba(37,211,102,.45);transition:transform var(--dur),box-shadow var(--dur)}
-    .waflt:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.55)}
-    .waflt-dot{position:absolute;top:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:var(--red);border:2px solid #fff;animation:wpulse 2s ease infinite}
-    @keyframes wpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
-
-    /* REVEAL */
-    .rv{opacity:0;transform:translateY(26px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-    .rv.in{opacity:1;transform:translateY(0)}
-    .rv1{transition-delay:.1s}
-    .rv2{transition-delay:.2s}
-    .rv3{transition-delay:.3s}
-
-    /* RESPONSIVE */
-    @media(max-width:1024px){
-      .hero{grid-template-columns:1fr}
-      .hright{display:none}
-      .hleft{padding:9rem 2rem 4rem}
-      .hleft::before{display:none}
-      .about-grid,.wgrid,.cinner{grid-template-columns:1fr;gap:3rem}
-      .sgrid{grid-template-columns:repeat(2,1fr)}
-      .sc-jcb{grid-column:span 2}
-      .tgrid{grid-template-columns:1fr 1fr}
-      .ftop{grid-template-columns:1fr 1fr}
-      .stats-box{grid-template-columns:repeat(2,1fr)}
-      .scell:nth-child(2){border-right:none}
-      .scell:nth-child(3){border-top:1px solid var(--border)}
+    .nl { color:rgba(255,255,255,.75); padding:.5rem .85rem; }
+    .nl-cta { background:var(--red); color:#fff !important; text-align:left; margin-top:0; border-radius:50px; }
+    .mbtn  { display:none; }
+    /* show prev/next arrows */
+    .cs-arrow { display:flex; }
+    .cs-prev { left:1.5rem; }
+    .cs-next { right:1.5rem; }
+    /* hero text repositioned */
+    .hero-content { padding:0 3rem 4rem; max-width:640px; }
+    /* stats: 4 col */
+    .stats-grid {
+      grid-template-columns:repeat(4,1fr);
     }
-    @media(max-width:768px){
-      .nmenu{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);flex-direction:column;align-items:stretch;padding:1.5rem;gap:.2rem;border-bottom:1px solid var(--border)}
-      .nmenu.open{display:flex}
-      .nl{color:var(--ink-3)!important;padding:.75rem 1rem}
-      .mbtn{display:block}
-      .sgrid{grid-template-columns:1fr}
-      .sc-jcb{grid-column:span 1}
-      .sc-jcb .slist{grid-template-columns:1fr}
-      .ggrid{grid-template-columns:1fr 1fr}
-      .gi.gw{grid-column:span 2}
-      .tgrid{grid-template-columns:1fr}
-      .ftop{grid-template-columns:1fr;gap:2rem}
-      .wright{position:static}
-      .frow{grid-template-columns:1fr}
-      .achecks{grid-template-columns:1fr}
-      .waflt span:last-child{display:none}
-      .waflt{padding:.9rem;border-radius:50%}
-    }
-    @media(max-width:480px){
-      section{padding:4rem 0}
-      .ggrid{grid-template-columns:1fr}
-      .gi.gw{grid-column:span 1}
-    }
+    .scell:nth-child(2) { border-right:1px solid var(--border); }
+    .scell:nth-child(3) { border-bottom:none; }
+    .scell:nth-child(4) { border-right:none; border-bottom:none; }
+    /* about 2-col */
+    .about-inner { display:grid; grid-template-columns:5fr 4fr; gap:5rem; align-items:center; }
+    .dcard { margin-top:0; }
+    /* services 3-col */
+    .svc-grid { grid-template-columns:repeat(3,1fr); }
+    /* gallery */
+    .ggrid { grid-template-columns:repeat(3,1fr); }
+    .gi img { height:250px; }
+    .gi.gw img { height:340px; }
+    /* testimonials 3-col */
+    .tgrid { grid-template-columns:repeat(3,1fr); }
+    /* why grid */
+    .why-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+    .wright { position:sticky; top:96px; }
+    .qcard { margin-top:0; }
+    /* contact 2-col */
+    .cinner { display:grid; grid-template-columns:1fr 1.5fr; gap:5rem; align-items:start; }
+    .ccards { margin-bottom:0; }
+    /* footer */
+    .ftop { flex-direction:row; gap:4rem; }
+    .fbrand { flex:2; }
+    .fcol { flex:1; }
+    .sbig { font-size:3rem; }
+    .fbot { flex-direction:row; }
+  }
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ═══════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════ -->
 <header id="hdr">
-  <nav>
-    <a href="#home" style="display:flex;flex-direction:column;line-height:1.25;">
+  <div class="nav-inner">
+    <a href="#home" class="logo-wrap">
       <span class="lmark">Almuwa Enterprises</span>
       <span class="lsub">Nairobi · Kenya</span>
     </a>
     <ul class="nmenu" id="nmenu">
-      <li><a href="#about" class="nl">About</a></li>
-      <li><a href="#services" class="nl">Services</a></li>
-      <li><a href="#gallery" class="nl">Gallery</a></li>
+      <li><a href="#about"        class="nl">About</a></li>
+      <li><a href="#services"     class="nl">Services</a></li>
+      <li><a href="#gallery"      class="nl">Gallery</a></li>
       <li><a href="#testimonials" class="nl">Reviews</a></li>
-      <li><a href="#contact" class="nl">Contact</a></li>
-      <li><a href="tel:+254722618007" class="nl ncta">📞 Call Now</a></li>
+      <li><a href="#contact"      class="nl">Contact</a></li>
+      <li><a href="tel:+254722618007" class="nl nl-cta">📞 Call Now</a></li>
     </ul>
     <button class="mbtn" id="mbtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
-  </nav>
+  </div>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hleft">
-    <div class="heyebrow"><span></span>Ngong Road, Karen · Nairobi</div>
+<!-- ═══════════════════════════════════════════
+     HERO CAROUSEL
+═══════════════════════════════════════════ -->
+<section class="hero" id="home" aria-label="Hero section with vehicle showcase">
+
+  <!-- Slides -->
+  <div class="cs-track" id="csTrack">
+
+    <div class="cs-slide active" data-cat="JCB Backhoe Loader">
+      <img src="20221214_145959.webp" alt="Almuwa Enterprises JCB Backhoe Loader digging trench in Nairobi" loading="eager">
+      <div class="cs-badge">JCB Backhoe Loader</div>
+    </div>
+
+    <div class="cs-slide" data-cat="JCB Site Operations">
+      <img src="20240206_182346.webp" alt="JCB Backhoe loading materials on construction site" loading="lazy">
+      <div class="cs-badge">JCB Site Operations</div>
+    </div>
+
+    <div class="cs-slide" data-cat="Exhauster Truck Fleet">
+      <img src="20200221_064128.webp" alt="Almuwa Enterprises professional exhauster truck" loading="lazy">
+      <div class="cs-badge">Exhauster Truck Fleet</div>
+    </div>
+
+    <div class="cs-slide" data-cat="JCB Land Clearing">
+      <img src="IMG_20180928_175219.webp" alt="JCB preparing and levelling land in Nairobi" loading="lazy">
+      <div class="cs-badge">JCB Land Clearing</div>
+    </div>
+
+    <div class="cs-slide" data-cat="Exhauster Service">
+      <img src="IMG_20181231_135930.webp" alt="Almuwa Enterprises exhauster service at residential site" loading="lazy">
+      <div class="cs-badge">Exhauster Service</div>
+    </div>
+
+  </div>
+
+  <!-- Hero overlay content -->
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span></span>Ngong Road, Karen · Nairobi</div>
     <h1>Build With<em>Confidence.</em></h1>
-    <p class="hdesc">Premium building materials, professional exhauster services, and powerful JCB backhoe hire — delivered on time, every time.</p>
-    <div class="htags">
+    <p class="hero-desc">Premium building materials, professional exhauster services, and powerful JCB backhoe hire — delivered on time, every time.</p>
+    <div class="hero-tags">
       <span class="htag">Sand &amp; Ballast</span>
       <span class="htag">Rocksand</span>
       <span class="htag">Machine Cut Stones</span>
-      <span class="htag">Exhauster Services</span>
-      <span class="htag">JCB Backhoe Hire</span>
+      <span class="htag">Exhauster</span>
+      <span class="htag">JCB Hire</span>
     </div>
-    <div class="hactions">
-      <a href="#contact" class="btn-red">Get a Free Quote →</a>
-      <a href="https://wa.me/254722618007?text=Hello%20Almuwa%20Enterprises" target="_blank" rel="noopener" class="btn-ghost-w">💬 WhatsApp Us</a>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-red">Get a Free Quote →</a>
+      <a href="https://wa.me/254722618007?text=Hello%20Almuwa%20Enterprises" target="_blank" rel="noopener" class="btn btn-ghost-w">💬 WhatsApp</a>
     </div>
-    <div class="hscroll"><div class="hline"></div>Scroll to explore</div>
   </div>
-  <div class="hright">
-    <img src="20221214_145959.webp" alt="Almuwa Enterprises JCB Backhoe Loader at work on a construction site in Nairobi, Kenya" loading="eager">
-  </div>
+
+  <!-- Arrows -->
+  <button class="cs-arrow cs-prev" id="csPrev" aria-label="Previous slide">‹</button>
+  <button class="cs-arrow cs-next" id="csNext" aria-label="Next slide">›</button>
+
+  <!-- Dots -->
+  <div class="cs-dots" id="csDots" role="tablist" aria-label="Carousel navigation"></div>
+
+  <!-- Progress bar -->
+  <div class="cs-progress"><div class="cs-progress-bar" id="csBar"></div></div>
+
 </section>
 
-<!-- TICKER -->
+<!-- ═══════════════════════════════════════════
+     SERVICE TICKER
+═══════════════════════════════════════════ -->
 <div class="ticker-wrap" aria-hidden="true">
   <div class="ticker">
-    <span class="titem"><span class="tdot"></span>Sand Supply</span>
-    <span class="titem"><span class="tdot"></span>Ballast Delivery</span>
-    <span class="titem"><span class="tdot"></span>Rocksand</span>
-    <span class="titem"><span class="tdot"></span>Machine Cut Stones</span>
-    <span class="titem"><span class="tdot"></span>JCB Backhoe Hire</span>
-    <span class="titem"><span class="tdot"></span>Exhauster Services</span>
-    <span class="titem"><span class="tdot"></span>Transportation</span>
-    <span class="titem"><span class="tdot"></span>24/7 Emergency</span>
-    <span class="titem"><span class="tdot"></span>Sand Supply</span>
-    <span class="titem"><span class="tdot"></span>Ballast Delivery</span>
-    <span class="titem"><span class="tdot"></span>Rocksand</span>
-    <span class="titem"><span class="tdot"></span>Machine Cut Stones</span>
-    <span class="titem"><span class="tdot"></span>JCB Backhoe Hire</span>
-    <span class="titem"><span class="tdot"></span>Exhauster Services</span>
-    <span class="titem"><span class="tdot"></span>Transportation</span>
-    <span class="titem"><span class="tdot"></span>24/7 Emergency</span>
+    <span class="ti"><span class="tdot"></span>Sand Supply</span>
+    <span class="ti"><span class="tdot"></span>Ballast Delivery</span>
+    <span class="ti"><span class="tdot"></span>Rocksand</span>
+    <span class="ti"><span class="tdot"></span>Machine Cut Stones</span>
+    <span class="ti"><span class="tdot"></span>JCB Backhoe Hire</span>
+    <span class="ti"><span class="tdot"></span>Exhauster Services</span>
+    <span class="ti"><span class="tdot"></span>Transportation</span>
+    <span class="ti"><span class="tdot"></span>24/7 Emergency</span>
+    <span class="ti"><span class="tdot"></span>Sand Supply</span>
+    <span class="ti"><span class="tdot"></span>Ballast Delivery</span>
+    <span class="ti"><span class="tdot"></span>Rocksand</span>
+    <span class="ti"><span class="tdot"></span>Machine Cut Stones</span>
+    <span class="ti"><span class="tdot"></span>JCB Backhoe Hire</span>
+    <span class="ti"><span class="tdot"></span>Exhauster Services</span>
+    <span class="ti"><span class="tdot"></span>Transportation</span>
+    <span class="ti"><span class="tdot"></span>24/7 Emergency</span>
   </div>
 </div>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="container">
-    <div class="stats-box rv">
-      <div class="scell"><div class="sbig" data-target="500">0</div><div class="slabel">Projects Completed</div></div>
-      <div class="scell"><div class="sbig" data-target="10">0</div><div class="slabel">Years in Business</div></div>
-      <div class="scell"><div class="sbig" data-target="24">0</div><div class="slabel">Hour Emergency Service</div></div>
-      <div class="scell"><div class="sbig" data-target="100">0</div><div class="slabel">% Quality Assured</div></div>
+<!-- ═══════════════════════════════════════════
+     STATS
+═══════════════════════════════════════════ -->
+<div class="stats sec">
+  <div class="wrap">
+    <div class="stats-grid rv">
+      <div class="scell"><div class="sbig" data-target="500">0</div><div class="slbl">Projects Completed</div></div>
+      <div class="scell"><div class="sbig" data-target="10">0</div><div class="slbl">Years Experience</div></div>
+      <div class="scell"><div class="sbig" data-target="24">0</div><div class="slbl">Hour Emergency</div></div>
+      <div class="scell"><div class="sbig" data-target="100">0</div><div class="slbl">% Quality Assured</div></div>
     </div>
   </div>
 </div>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="at rv">
+<!-- ═══════════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════════ -->
+<section class="about sec" id="about">
+  <div class="wrap">
+    <div class="about-inner">
+      <div class="about-text rv">
         <div class="tag">Who We Are</div>
-        <h2 class="display">Nairobi's Trusted<br>Construction Partner</h2>
-        <p>Almuwa Enterprises has been supplying quality building materials and construction services across Nairobi and surrounding counties for over a decade. From a single tonne of sand to a full-scale JCB excavation project, we show up on time and deliver on every promise.</p>
-        <p>Contractors, homebuilders, farmers, and municipalities trust us because we combine premium-grade materials with reliable logistics and transparent pricing — no surprises, ever.</p>
+        <h2 class="display d-lg">Nairobi's Trusted<br>Construction Partner</h2>
+        <p>Almuwa Enterprises has been supplying quality building materials and construction services across Nairobi for over a decade. From a single tonne of sand to a full-scale JCB excavation, we show up on time and deliver on every promise.</p>
+        <p>Contractors, homebuilders, farmers, and municipalities trust us because we combine premium materials with reliable logistics and transparent pricing — no surprises, ever.</p>
         <ul class="achecks">
-          <li class="acheck">Bulk material delivery</li>
-          <li class="acheck">Same-day service available</li>
-          <li class="acheck">Transparent, fair pricing</li>
-          <li class="acheck">Professional experienced team</li>
-          <li class="acheck">All Nairobi estates covered</li>
-          <li class="acheck">JCB operator always included</li>
+          <li class="achk">Bulk material delivery</li>
+          <li class="achk">Same-day service</li>
+          <li class="achk">Transparent pricing</li>
+          <li class="achk">Professional team</li>
+          <li class="achk">All Nairobi estates</li>
+          <li class="achk">Operator included</li>
         </ul>
       </div>
       <div class="dcard rv rv1">
@@ -422,39 +753,41 @@
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="container">
-    <div class="shead">
-      <div class="rv"><div class="tag">What We Offer</div><h2 class="display">Our Services</h2></div>
-      <a href="#contact" class="btn-red rv rv1">Request a Quote →</a>
+<!-- ═══════════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════════ -->
+<section class="services sec" id="services">
+  <div class="wrap">
+    <div class="rv">
+      <div class="tag">What We Offer</div>
+      <h2 class="display d-lg">Our Services</h2>
     </div>
-    <div class="sgrid rv">
-      <div class="sc">
+    <div class="svc-grid rv">
+      <div class="svc">
         <div class="snum">01</div>
         <div class="siw">🚛</div>
         <h3 class="stitle">Exhauster Services</h3>
-        <p class="sdesc">Professional septic tank and waste management for residential &amp; commercial properties.</p>
+        <p class="sdesc">Professional septic tank &amp; waste management for homes, offices &amp; estates.</p>
         <ul class="slist"><li>24/7 Emergency Response</li><li>Licensed &amp; Certified</li><li>Modern Tanker Fleet</li><li>All Nairobi Estates</li></ul>
         <div class="sarrow">→</div>
       </div>
-      <div class="sc">
+      <div class="svc">
         <div class="snum">02</div>
         <div class="siw">🏖️</div>
         <h3 class="stitle">Sand Supply</h3>
-        <p class="sdesc">High-quality construction sand for plastering, mixing, and finishing work.</p>
+        <p class="sdesc">High-quality construction sand for plastering, mixing, and finishing.</p>
         <ul class="slist"><li>River Sand</li><li>Fine &amp; Coarse Grades</li><li>Bulk Orders Welcome</li><li>Prompt Delivery</li></ul>
         <div class="sarrow">→</div>
       </div>
-      <div class="sc">
+      <div class="svc">
         <div class="snum">03</div>
         <div class="siw">🪨</div>
         <h3 class="stitle">Ballast</h3>
-        <p class="sdesc">Premium-grade ballast for reinforced concrete and structural construction work.</p>
+        <p class="sdesc">Premium-grade ballast for reinforced concrete and structural work.</p>
         <ul class="slist"><li>20mm Ballast</li><li>40mm Ballast</li><li>Quality Tested</li><li>Timely Delivery</li></ul>
         <div class="sarrow">→</div>
       </div>
-      <div class="sc">
+      <div class="svc">
         <div class="snum">04</div>
         <div class="siw">⛰️</div>
         <h3 class="stitle">Rocksand</h3>
@@ -462,7 +795,7 @@
         <ul class="slist"><li>0–4mm Grade</li><li>Ideal for Foundations</li><li>Quality Assured</li><li>Fast Delivery</li></ul>
         <div class="sarrow">→</div>
       </div>
-      <div class="sc">
+      <div class="svc">
         <div class="snum">05</div>
         <div class="siw">🧱</div>
         <h3 class="stitle">Machine Cut Stones</h3>
@@ -470,20 +803,20 @@
         <ul class="slist"><li>Multiple Sizes</li><li>Uniform Quality</li><li>Perfect for Walling</li><li>On-Time Delivery</li></ul>
         <div class="sarrow">→</div>
       </div>
-      <div class="sc">
+      <div class="svc">
         <div class="snum">06</div>
         <div class="siw">🚚</div>
         <h3 class="stitle">Transportation</h3>
-        <p class="sdesc">Reliable trucks to deliver all materials directly to your construction site.</p>
-        <ul class="slist"><li>Modern Fleet</li><li>Professional Drivers</li><li>All Nairobi Areas</li><li>GPS-Tracked Delivery</li></ul>
+        <p class="sdesc">Reliable trucks to deliver all materials directly to your site.</p>
+        <ul class="slist"><li>Modern Fleet</li><li>Professional Drivers</li><li>All Nairobi Areas</li><li>GPS-Tracked</li></ul>
         <div class="sarrow">→</div>
       </div>
-      <div class="sc sc-jcb">
+      <div class="svc svc-jcb">
         <div class="snum">07</div>
         <div class="jbadge">⭐ Most Popular Service</div>
         <div class="siw">🏗️</div>
         <h3 class="stitle">JCB Backhoe Loader Hire</h3>
-        <p class="sdesc" style="max-width:520px;">Heavy-duty JCB backhoe loader hire with an experienced operator included. Perfect for construction, farming, and utility projects. 3DX / 2DX Series — 49.5 HP to 90+ HP diesel engines.</p>
+        <p class="sdesc">Heavy-duty JCB backhoe loader hire with an experienced operator. 3DX / 2DX Series — 49.5 HP to 90+ HP. Perfect for construction, farming &amp; utility projects.</p>
         <ul class="slist">
           <li>Front loader + rear backhoe</li><li>Trench digging &amp; foundations</li>
           <li>Loading &amp; material handling</li><li>Land clearing &amp; demolition</li>
@@ -492,77 +825,90 @@
         <div class="sarrow" style="opacity:1;transform:none;">→</div>
       </div>
     </div>
+    <div style="margin-top:1.5rem;" class="rv">
+      <a href="#contact" class="btn btn-red btn-full">Request a Quote →</a>
+    </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="gallery" id="gallery">
-  <div class="container">
-    <div class="ghead">
-      <div class="rv"><div class="tag">Our Work</div><h2 class="display">See Us In Action</h2></div>
-      <div class="gfilters rv rv1">
-        <button class="gtab active" data-cat="all">All</button>
-        <button class="gtab" data-cat="jcb">JCB</button>
-        <button class="gtab" data-cat="materials">Materials</button>
-        <button class="gtab" data-cat="exhauster">Exhauster</button>
-      </div>
+<!-- ═══════════════════════════════════════════
+     GALLERY
+═══════════════════════════════════════════ -->
+<section class="gallery sec" id="gallery">
+  <div class="wrap">
+    <div class="rv">
+      <div class="tag">Our Work</div>
+      <h2 class="display d-lg">See Us In Action</h2>
+    </div>
+    <div class="gfilters rv">
+      <button class="gtab active" data-cat="all">All</button>
+      <button class="gtab" data-cat="jcb">JCB</button>
+      <button class="gtab" data-cat="materials">Materials</button>
+      <button class="gtab" data-cat="exhauster">Exhauster</button>
     </div>
     <div class="ggrid rv" id="ggrid">
       <div class="gi gw" data-cat="jcb"><img src="20221214_145959.webp" alt="JCB Backhoe Loader digging trench" loading="lazy"><div class="gov"><span class="glabel">JCB Backhoe — Trench Digging</span></div><div class="gzoom">⤢</div></div>
-      <div class="gi" data-cat="jcb"><img src="20240206_182346.webp" alt="JCB loading materials on site" loading="lazy"><div class="gov"><span class="glabel">JCB Loading Materials</span></div><div class="gzoom">⤢</div></div>
+      <div class="gi" data-cat="jcb"><img src="20240206_182346.webp" alt="JCB loading materials" loading="lazy"><div class="gov"><span class="glabel">JCB Loading Materials</span></div><div class="gzoom">⤢</div></div>
       <div class="gi" data-cat="exhauster"><img src="20200221_064128.webp" alt="Exhauster truck in action" loading="lazy"><div class="gov"><span class="glabel">Exhauster Service</span></div><div class="gzoom">⤢</div></div>
-      <div class="gi" data-cat="materials"><img src="construction-river-sand (1).webp" alt="Quality river sand" loading="lazy"><div class="gov"><span class="glabel">River Sand Supply</span></div><div class="gzoom">⤢</div></div>
-      <div class="gi" data-cat="materials"><img src="2-inch-ballast (1).webp" alt="Premium 20mm ballast" loading="lazy"><div class="gov"><span class="glabel">Premium Ballast</span></div><div class="gzoom">⤢</div></div>
+      <div class="gi" data-cat="materials"><img src="construction-river-sand (1).webp" alt="River sand supply" loading="lazy"><div class="gov"><span class="glabel">River Sand Supply</span></div><div class="gzoom">⤢</div></div>
+      <div class="gi" data-cat="materials"><img src="2-inch-ballast (1).webp" alt="Premium ballast" loading="lazy"><div class="gov"><span class="glabel">Premium Ballast</span></div><div class="gzoom">⤢</div></div>
       <div class="gi" data-cat="materials"><img src="rocksand-0-4_2 (1).webp" alt="Rocksand 0-4mm" loading="lazy"><div class="gov"><span class="glabel">Rocksand 0–4mm</span></div><div class="gzoom">⤢</div></div>
       <div class="gi" data-cat="materials"><img src="machine+cut+stone (1).webp" alt="Machine cut stones" loading="lazy"><div class="gov"><span class="glabel">Machine Cut Stones</span></div><div class="gzoom">⤢</div></div>
       <div class="gi" data-cat="jcb"><img src="IMG_20180928_175219.webp" alt="JCB site levelling" loading="lazy"><div class="gov"><span class="glabel">Site Levelling</span></div><div class="gzoom">⤢</div></div>
-      <div class="gi" data-cat="exhauster"><img src="IMG_20181231_135930.webp" alt="Exhauster at residential site" loading="lazy"><div class="gov"><span class="glabel">Residential Septic Service</span></div><div class="gzoom">⤢</div></div>
+      <div class="gi" data-cat="exhauster"><img src="IMG_20181231_135930.webp" alt="Exhauster residential" loading="lazy"><div class="gov"><span class="glabel">Residential Septic Service</span></div><div class="gzoom">⤢</div></div>
       <div class="gi" data-cat="materials"><img src="bfri6vd6vi5hcpw3xnat.webp" alt="Bulk sand delivery" loading="lazy"><div class="gov"><span class="glabel">Bulk Sand Delivery</span></div><div class="gzoom">⤢</div></div>
     </div>
   </div>
 </section>
 
-<!-- LIGHTBOX -->
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
-  <button class="lbx" id="lbx" aria-label="Close">✕</button>
+<!-- Lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="lbx" id="lbx" aria-label="Close image">✕</button>
   <img id="lbimg" src="" alt="">
 </div>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
-  <div class="container">
-    <div class="thead rv"><div class="tag">Client Feedback</div><h2 class="display">What Our Clients Say</h2></div>
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════ -->
+<section class="testimonials sec" id="testimonials">
+  <div class="wrap">
+    <div class="thead rv">
+      <div class="tag">Client Feedback</div>
+      <h2 class="display d-lg">What Our Clients Say</h2>
+    </div>
     <div class="tgrid">
-      <div class="tc rv"><div class="tstars">★★★★★</div><p class="tq">"Excellent service! The sand and ballast quality is top-notch. Delivery was prompt and the team was very professional. Will definitely use them again for my next project."</p><div class="tdiv"></div><div class="tauth">John Kamau</div><div class="trole">Building Contractor, Nairobi</div></div>
-      <div class="tc rv rv1"><div class="tstars">★★★★★</div><p class="tq">"Best exhauster services in Nairobi. Available 24/7 and very responsive. They arrived within an hour of my call on a Sunday evening. Highly recommend!"</p><div class="tdiv"></div><div class="tauth">Grace Mwangi</div><div class="trole">Property Manager, Karen</div></div>
-      <div class="tc rv rv2"><div class="tstars">★★★★★</div><p class="tq">"Great prices and quality materials. The JCB operator was skilled and efficient — finished the foundation trenches in half the time I expected. Very reliable company."</p><div class="tdiv"></div><div class="tauth">David Ochieng</div><div class="trole">Developer &amp; Builder</div></div>
+      <div class="tc rv"><div class="tstars">★★★★★</div><p class="tq">"Excellent service! The sand and ballast quality is top-notch. Delivery was prompt and the team very professional. Will definitely use them again."</p><div class="tdiv"></div><div class="tauth">John Kamau</div><div class="trole">Building Contractor, Nairobi</div></div>
+      <div class="tc rv rv1"><div class="tstars">★★★★★</div><p class="tq">"Best exhauster services in Nairobi. Available 24/7 and very responsive. They arrived within an hour of my call on a Sunday evening."</p><div class="tdiv"></div><div class="tauth">Grace Mwangi</div><div class="trole">Property Manager, Karen</div></div>
+      <div class="tc rv rv2"><div class="tstars">★★★★★</div><p class="tq">"Great prices and quality materials. The JCB operator was skilled — finished the foundation trenches in half the time I expected. Very reliable."</p><div class="tdiv"></div><div class="tauth">David Ochieng</div><div class="trole">Developer &amp; Builder</div></div>
     </div>
   </div>
 </section>
 
-<!-- WHY US -->
-<section class="why" id="why">
-  <div class="container">
-    <div class="wgrid">
-      <div class="wleft rv">
+<!-- ═══════════════════════════════════════════
+     WHY US
+═══════════════════════════════════════════ -->
+<section class="why sec" id="why">
+  <div class="wrap">
+    <div class="why-inner">
+      <div class="rv">
         <div class="tag">Why Almuwa</div>
-        <h2 class="display">Why Clients<br>Choose Us</h2>
-        <p>We don't just sell materials — we show up, deliver on our promises, and stand behind every job.</p>
+        <h2 class="display d-lg">Why Clients Choose Us</h2>
+        <p style="font-size:.85rem;color:var(--muted);margin:.5rem 0 0;">We don't just sell materials — we deliver on every promise.</p>
         <div class="wpts">
           <div class="wpt"><div class="wn">01</div><div><h4>Same-Day &amp; Emergency Service</h4><p>24/7 exhauster availability and fast material delivery when you need it most.</p></div></div>
-          <div class="wpt"><div class="wn">02</div><div><h4>Transparent, Fair Pricing</h4><p>No hidden charges. Clear quotes upfront and you pay exactly what was agreed.</p></div></div>
-          <div class="wpt"><div class="wn">03</div><div><h4>Quality You Can See</h4><p>Our materials are sourced and quality-checked so your structure stands for generations.</p></div></div>
+          <div class="wpt"><div class="wn">02</div><div><h4>Transparent, Fair Pricing</h4><p>No hidden charges. Clear quotes upfront — you pay exactly what was agreed.</p></div></div>
+          <div class="wpt"><div class="wn">03</div><div><h4>Quality You Can See</h4><p>Our materials are sourced and checked so your structure stands for generations.</p></div></div>
           <div class="wpt"><div class="wn">04</div><div><h4>One-Stop Convenience</h4><p>Materials, transport, exhauster, and JCB — one company, one call, zero hassle.</p></div></div>
         </div>
       </div>
       <div class="wright rv rv1">
         <div class="qcard">
           <h3>Ready to Start Your Project?</h3>
-          <p>Get a fast, no-obligation quote. Most inquiries answered within the hour during business hours.</p>
-          <a href="#contact" class="btn-red">Get Your Free Quote →</a>
+          <p>Get a fast, no-obligation quote. Most inquiries answered within the hour.</p>
+          <a href="#contact" class="btn btn-red btn-full">Get Your Free Quote →</a>
           <div class="qlinks">
-            <a href="tel:+254722618007" class="qlink"><div class="qlicon">📞</div>0722-618007 (Cell)</a>
-            <a href="tel:+254736778694" class="qlink"><div class="qlicon">📞</div>0736-778694 (Airtel)</a>
+            <a href="tel:+254722618007"   class="qlink"><div class="qlicon">📞</div>0722-618007 (Cell)</a>
+            <a href="tel:+254736778694"   class="qlink"><div class="qlicon">📞</div>0736-778694 (Airtel)</a>
             <a href="https://wa.me/254722618007" target="_blank" rel="noopener" class="qlink qwa"><span style="font-size:1.1rem">💬</span>Chat on WhatsApp</a>
             <a href="mailto:almuwalimited@gmail.com" class="qlink"><div class="qlicon">✉️</div>almuwalimited@gmail.com</a>
           </div>
@@ -572,20 +918,22 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="container">
+<!-- ═══════════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════════ -->
+<section class="contact sec" id="contact">
+  <div class="wrap">
     <div class="cinner">
       <div class="cinfo rv">
         <div class="tag">Get in Touch</div>
-        <h2 class="display">Request a Quote</h2>
-        <p>Fill the form or reach us directly. WhatsApp is the quickest way to reach us — we respond fast.</p>
+        <h2 class="display d-md">Request a Quote</h2>
+        <p>Fill the form or reach us directly. WhatsApp is the fastest way to reach us.</p>
         <div class="ccards">
-          <a href="https://wa.me/254722618007?text=Hello%20Almuwa%20Enterprises" target="_blank" rel="noopener" class="cc cc-wa"><div class="ccicon">💬</div><div><div class="cclabel">WhatsApp — Fastest Response</div><div class="ccval">0722-618007</div></div></a>
-          <a href="tel:+254722618007" class="cc"><div class="ccicon">📱</div><div><div class="cclabel">Cell</div><div class="ccval">0722-618007</div></div></a>
-          <a href="tel:+254736778694" class="cc"><div class="ccicon">📞</div><div><div class="cclabel">Airtel</div><div class="ccval">0736-778694</div></div></a>
-          <a href="mailto:almuwalimited@gmail.com" class="cc"><div class="ccicon">✉️</div><div><div class="cclabel">Email</div><div class="ccval">almuwalimited@gmail.com</div></div></a>
-          <div class="cc" style="cursor:default"><div class="ccicon">📍</div><div><div class="cclabel">Office Address</div><div class="ccval">Ngong Road, Karen — P.O. Box 24250-00502, Nairobi</div></div></div>
+          <a href="https://wa.me/254722618007?text=Hello%20Almuwa%20Enterprises" target="_blank" rel="noopener" class="cc cc-wa"><div class="ccicon">💬</div><div><div class="cclbl">WhatsApp — Fastest</div><div class="ccval">0722-618007</div></div></a>
+          <a href="tel:+254722618007" class="cc"><div class="ccicon">📱</div><div><div class="cclbl">Cell</div><div class="ccval">0722-618007</div></div></a>
+          <a href="tel:+254736778694" class="cc"><div class="ccicon">📞</div><div><div class="cclbl">Airtel</div><div class="ccval">0736-778694</div></div></a>
+          <a href="mailto:almuwalimited@gmail.com" class="cc"><div class="ccicon">✉️</div><div><div class="cclbl">Email</div><div class="ccval">almuwalimited@gmail.com</div></div></a>
+          <div class="cc" style="cursor:default"><div class="ccicon">📍</div><div><div class="cclbl">Address</div><div class="ccval">Ngong Road, Karen · P.O. Box 24250-00502</div></div></div>
         </div>
       </div>
       <div class="cfbox rv rv1">
@@ -594,8 +942,8 @@
         <div class="fsuccess" id="fsuccess">
           <div class="si">✅</div>
           <h4>Message Sent!</h4>
-          <p>Thank you — we'll be in touch shortly. For a faster reply, chat on WhatsApp.</p>
-          <a href="https://wa.me/254722618007" target="_blank" rel="noopener" class="btn-red">💬 Open WhatsApp</a>
+          <p>We'll be in touch shortly. For a faster reply, chat on WhatsApp.</p>
+          <a href="https://wa.me/254722618007" target="_blank" rel="noopener" class="btn btn-red">💬 Open WhatsApp</a>
         </div>
         <form id="cform" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact">
@@ -609,28 +957,31 @@
           <div class="fg"><label>Service Needed *</label>
             <select name="service" required>
               <option value="" disabled selected>Select a service…</option>
-              <option>Sand Supply</option><option>Ballast Supply</option><option>Rocksand Supply</option>
-              <option>Machine Cut Stones</option><option>Exhauster Services</option>
-              <option>JCB Backhoe Loader Hire</option><option>Transportation Only</option><option>Multiple Services</option>
+              <option>Sand Supply</option><option>Ballast Supply</option>
+              <option>Rocksand Supply</option><option>Machine Cut Stones</option>
+              <option>Exhauster Services</option><option>JCB Backhoe Loader Hire</option>
+              <option>Transportation Only</option><option>Multiple Services</option>
             </select>
           </div>
           <div class="fg"><label>Project Details *</label><textarea name="message" required placeholder="Location, quantity needed, timeline…"></textarea></div>
           <button type="submit" class="fsub-btn">Send Inquiry →</button>
-          <p class="fnote">Or call us directly: <a href="tel:+254722618007">0722-618007</a></p>
+          <p class="fnote">Or call directly: <a href="tel:+254722618007">0722-618007</a></p>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
 <footer>
-  <div class="container">
+  <div class="wrap">
     <div class="ftop">
       <div class="fbrand">
         <span class="lmark">Almuwa Enterprises</span>
         <span class="lsub">Nairobi · Kenya</span>
-        <p>Quality building materials, professional exhauster services, and JCB backhoe loader hire in Nairobi and surrounding areas. Licensed, certified, and trusted by hundreds of contractors.</p>
+        <p>Quality building materials, professional exhauster services, and JCB backhoe loader hire in Nairobi and surrounding areas.</p>
       </div>
       <div class="fcol">
         <h6>Services</h6>
@@ -644,7 +995,6 @@
           <li><a href="mailto:almuwalimited@gmail.com">✉️ almuwalimited@gmail.com</a></li>
           <li><a href="https://wa.me/254722618007" target="_blank" rel="noopener">💬 WhatsApp</a></li>
           <li>📍 Ngong Road, Karen</li>
-          <li>P.O. Box 24250-00502</li>
         </ul>
       </div>
     </div>
@@ -655,62 +1005,144 @@
   </div>
 </footer>
 
-<!-- FLOATING WA -->
+<!-- ═══════════════════════════════════════════
+     FLOATING WHATSAPP
+═══════════════════════════════════════════ -->
 <a href="https://wa.me/254722618007?text=Hello%20Almuwa%20Enterprises" class="waflt" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <div class="waflt-dot"></div>
-  <span style="font-size:1.2rem">💬</span>
-  <span>WhatsApp Us</span>
+  💬
 </a>
 
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
 <script>
 'use strict';
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-// Header scroll
+/* ── HEADER SCROLL ─────────────────────────── */
 const hdr = document.getElementById('hdr');
-window.addEventListener('scroll', () => hdr.classList.toggle('on', window.scrollY > 50), {passive:true});
+window.addEventListener('scroll', () => hdr.classList.toggle('on', window.scrollY > 50), { passive:true });
 
-// Mobile menu
-const mbtn = document.getElementById('mbtn');
+/* ── MOBILE MENU ───────────────────────────── */
+const mbtn  = document.getElementById('mbtn');
 const nmenu = document.getElementById('nmenu');
 mbtn.addEventListener('click', () => {
-  const o = nmenu.classList.toggle('open');
-  mbtn.textContent = o ? '✕' : '☰';
-  mbtn.setAttribute('aria-expanded', o);
+  const open = nmenu.classList.toggle('open');
+  mbtn.textContent = open ? '✕' : '☰';
+  mbtn.setAttribute('aria-expanded', open);
 });
 nmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   nmenu.classList.remove('open'); mbtn.textContent = '☰';
 }));
 
-// Smooth scroll
+/* ── SMOOTH SCROLL ─────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const t = document.querySelector(a.getAttribute('href'));
     if (!t) return;
     e.preventDefault();
-    window.scrollTo({top: t.getBoundingClientRect().top + window.scrollY - 80, behavior:'smooth'});
+    window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 70, behavior:'smooth' });
   });
 });
 
-// Scroll reveal
+/* ── HERO CAROUSEL ─────────────────────────── */
+(function() {
+  const track    = document.getElementById('csTrack');
+  const slides   = track.querySelectorAll('.cs-slide');
+  const dotsWrap = document.getElementById('csDots');
+  const bar      = document.getElementById('csBar');
+  const btnPrev  = document.getElementById('csPrev');
+  const btnNext  = document.getElementById('csNext');
+  const INTERVAL = 5000; // 5 seconds
+  const COUNT    = slides.length;
+  let cur = 0, timer, startX = 0, progTimer, progStart;
+
+  /* Build dots */
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'cs-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('role', 'tab');
+    d.setAttribute('aria-label', `Slide ${i+1}`);
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+  });
+
+  function updateDots() {
+    dotsWrap.querySelectorAll('.cs-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  function goTo(index, restart = true) {
+    slides[cur].classList.remove('active');
+    cur = (index + COUNT) % COUNT;
+    slides[cur].classList.add('active');
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    updateDots();
+    if (restart) resetTimer();
+    resetProgress();
+  }
+
+  /* Auto-advance */
+  function startTimer() { timer = setTimeout(() => goTo(cur + 1, false), INTERVAL); }
+  function resetTimer()  { clearTimeout(timer); startTimer(); }
+
+  /* Progress bar animation */
+  function resetProgress() {
+    clearInterval(progTimer);
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        bar.style.transition = `width ${INTERVAL}ms linear`;
+        bar.style.width = '100%';
+      });
+    });
+  }
+
+  btnPrev.addEventListener('click', () => goTo(cur - 1));
+  btnNext.addEventListener('click', () => goTo(cur + 1));
+
+  /* Keyboard */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  goTo(cur - 1);
+    if (e.key === 'ArrowRight') goTo(cur + 1);
+  });
+
+  /* Touch / swipe */
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive:true });
+  track.addEventListener('touchend',   e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? cur + 1 : cur - 1);
+  }, { passive:true });
+
+  /* Pause on hover */
+  track.closest('.hero').addEventListener('mouseenter', () => { clearTimeout(timer); });
+  track.closest('.hero').addEventListener('mouseleave', resetTimer);
+
+  /* Boot */
+  startTimer();
+  resetProgress();
+})();
+
+/* ── SCROLL REVEAL ─────────────────────────── */
 const ro = new IntersectionObserver(es => {
   es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
-}, {threshold:0.07, rootMargin:'0px 0px -25px 0px'});
+}, { threshold:0.07, rootMargin:'0px 0px -24px 0px' });
 document.querySelectorAll('.rv').forEach(el => ro.observe(el));
 
-// Counters
+/* ── COUNTERS ──────────────────────────────── */
 const co = new IntersectionObserver(es => {
   es.forEach(e => {
     if (!e.isIntersecting) return;
     const el = e.target, tgt = parseInt(el.dataset.target, 10);
-    let c = 0; const step = Math.max(1, Math.ceil(tgt/60));
-    const tm = setInterval(() => { c = Math.min(c+step, tgt); el.textContent = c; if(c>=tgt) clearInterval(tm); }, 22);
+    let c = 0; const step = Math.max(1, Math.ceil(tgt / 60));
+    const t = setInterval(() => { c = Math.min(c + step, tgt); el.textContent = c; if (c >= tgt) clearInterval(t); }, 22);
     co.unobserve(el);
   });
-}, {threshold:0.6});
+}, { threshold:0.6 });
 document.querySelectorAll('[data-target]').forEach(el => co.observe(el));
 
-// Gallery filter
+/* ── GALLERY FILTER ────────────────────────── */
 document.querySelectorAll('.gtab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.gtab').forEach(t => t.classList.remove('active'));
@@ -722,8 +1154,8 @@ document.querySelectorAll('.gtab').forEach(tab => {
   });
 });
 
-// Lightbox
-const lb = document.getElementById('lb');
+/* ── LIGHTBOX ──────────────────────────────── */
+const lb    = document.getElementById('lb');
 const lbimg = document.getElementById('lbimg');
 document.querySelectorAll('.gi').forEach(item => {
   item.addEventListener('click', () => {
@@ -738,8 +1170,8 @@ document.getElementById('lbx').addEventListener('click', closeLb);
 lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 
-// Contact form (Netlify)
-const form = document.getElementById('cform');
+/* ── CONTACT FORM (Netlify) ────────────────── */
+const form     = document.getElementById('cform');
 const fsuccess = document.getElementById('fsuccess');
 if (form) {
   form.addEventListener('submit', async e => {
@@ -747,7 +1179,7 @@ if (form) {
     const btn = form.querySelector('.fsub-btn');
     btn.disabled = true; btn.textContent = 'Sending…';
     try {
-      await fetch('/', {method:'POST', body: new FormData(form)});
+      await fetch('/', { method:'POST', body: new FormData(form) });
       form.style.display = 'none'; fsuccess.style.display = 'block';
     } catch {
       alert('There was an error. Please call us directly at 0722-618007.');
